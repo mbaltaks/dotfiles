@@ -1,0 +1,26 @@
+[alias]
+	st = status
+	d = diff
+	ci = commit -v
+	cia = commit -v -a
+	co = checkout
+	cp = cherry-pick
+
+[core]
+	excludesfile = ~/.gitignore_global
+	pager = "less -eFiMR"
+	editor = vim
+
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	ui = auto
+
+[diff "utf16"]
+	command = opendiff
+
+# Allow local customizations in the .gitconfig_local file
+[include]
+	path = ~/.gitconfig_local
