@@ -22,6 +22,15 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
+"" Colours
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
+colorscheme solarized
+set guifont=Source\ Code\ Pro:h12
+
 let $LOCALFILE=expand("~/.vimrc_local")
 if filereadable($LOCALFILE)
     source $LOCALFILE
