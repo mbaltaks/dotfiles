@@ -1,0 +1,60 @@
+# Default PATH for Mac OS X 10.7
+# /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+# Default PATH for some older Mac OS X version
+#PATH="${PATH}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin"
+
+# Append new folder to variable (if it exists)
+append()
+{
+    [ -d "$1" ] && NEWPATH="${NEWPATH}:$1"
+}
+
+# User specific folders
+append "$HOME/bin"
+append "$HOME/.dotfiles/bin"
+
+# Machine local folders
+append "/usr/local/bin"
+append "/usr/local/sbin"
+
+# MacPorts
+append "/opt/local/bin"
+append "/opt/local/sbin"
+
+# Xcode tools
+append "/Applications/Xcode.app/Contents/Developer/Tools"
+
+# Heroku
+append "/usr/local/heroku/bin"
+
+# Android development
+append "/Users/Data/Applications/Android Studio.app/sdk/tools"
+append "/Users/Data/Applications/Android Studio.app/sdk/platform-tools"
+
+# WebKit JavaScript interpreter
+#append "/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources"
+#append "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin"
+
+# Fink
+#PATH="${PATH}:/sw/bin:/sw/sbin"
+#PATH=${PATH}:/usr/local/*/bin
+
+# Postgres.app
+append "/Applications/Postgres.app/Contents/Versions/9.4/bin"
+
+PATH="${NEWPATH}:${PATH}"
+export PATH
+
+NEW_C_INCLUDE_PATH=${C_INCLUDE_PATH}:/opt/local/include
+C_INCLUDE_PATH=${NEW_C_INCLUDE_PATH}
+export C_INCLUDE_PATH
+
+# Add a few extra places to the man path
+# Also add them to /usr/share/misc/man.conf
+NEWMANPATH="/usr/local/man:/usr/local/share/man"
+NEWMANPATH="${NEWMANPATH}:/opt/local/man:/opt/local/share/man"
+MANPATH="${NEWMANPATH}:${MANPATH}"
+export MANPATH
+
+# clean up
+unset append
