@@ -1,0 +1,28 @@
+if [ -f /opt/local/share/git/git-prompt.sh ]; then
+    . /opt/local/share/git/git-prompt.sh
+fi
+
+function parse_git_dirty
+{
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
+}
+
+function real_user
+{
+  LOGNAME=$(logname)
+  if [ "${LOGNAME}" == "${USER}" ]; then
+    echo "${LOGNAME}"
+  else
+    echo "$(tput setaf 1)${LOGNAME}$(tput sgr0) as ${USER}"
+  fi
+  #FULLUSER=$([ "${LOGNAME}" = "${USER}" ] && echo ${USER} || echo '$(tput setaf 1)${LOGNAME}$(tput sgr0) as ${USER}')
+  #echo ${FULLUSER}
+}
+
+#PS1='\h:\W \u\$ '
+#PS1='\h:\w \u\$ '
+#export PS1='\u@\h \w$(__git_ps1 "[%s]")$ '
+#export PS1='\u@\h \w\[\e[0;32m\]$(__git_ps1 "[%s]")\[\e[0m\]$ '
+#export PS1='\u@\h \w$(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]]")$ '
+#export PS1='\u@\h:\w$(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]\[\e[0;31m\]$(parse_git_dirty)\[\e[0m\]]")$ '
+export PS1='$(real_user)@\h:\w$(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]\[\e[0;31m\]$(parse_git_dirty)\[\e[0m\]]")$ '
