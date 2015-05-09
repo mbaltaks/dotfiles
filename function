@@ -1,0 +1,142 @@
+function strip_to_architecture()
+{
+find "${1:-.}" -type f -perm +111 -not -perm +7000 -not -name '*.*' -exec lipo {} -thin "${2:-`arch`}" -output {} \; -print 2>/dev/null
+}
+
+calc ()
+{
+	echo "$@" | bc -l
+}
+
+checksha256()
+{
+	if [ $# -lt 2 ] ; then
+		echo "Usage: checksha256 filepath sha256-sum ..." ;
+		echo "       must specify at least one pair of file and checksum." ;
+		echo "Exiting." ;
+	fi
+
+	filehash=`openssl sha256 "${1}" | /usr/bin/awk -F"=" '{ print $2 }'` ;
+	if [ $filehash == $2 ] ; then
+		echo "** SHA256 matches **" ;
+	else
+		echo " ********** ERROR: SHA256 DOES NOT MATCH **********" ;
+	fi
+}
+
+checksha1()
+{
+	if [ $# -lt 2 ] ; then
+		echo "Usage: checksha1 filepath sha1-sum ..." ;
+		echo "       must specify at least one pair of file and checksum." ;
+		echo "Exiting." ;
+	fi
+
+	filesha1=`/usr/bin/openssl sha1 "${1}" | /usr/bin/awk -F"=" '{ print $2 }'` ;
+	if [ $filesha1 == $2 ] ; then
+		echo "** SHA1 matches **" ;
+	else
+		echo " ********** ERROR: SHA1 DOES NOT MATCH **********" ;
+	fi
+}
+
+checkmd5()
+{
+	if [ $# -lt 2 ] ; then
+		echo "Usage: checkmd5 filepath sha1-sum ..." ;
+		echo "       must specify at least one pair of file and checksum." ;
+		echo "Exiting." ;
+	fi
+
+	filesha1=`/usr/bin/openssl md5 "${1}" | /usr/bin/awk -F"=" '{ print $2 }'` ;
+	if [ $filesha1 == $2 ] ; then
+		echo "** MD5 matches **" ;
+	else
+		echo " ********** ERROR: MD5 DOES NOT MATCH **********" ;
+	fi
+}
+
+# From http://luo.ma/geek/ssh-color-iterm
+function set_term_bgcolor
+{
+  local R=$1
+  local G=$2
+  local B=$3
+  /usr/bin/osascript <<EOF
+tell application "iTerm"
+  tell the current terminal
+    tell the current session
+      set background color to {$(($R*65535/255)), $(($G*65535/255)), $(($B*65535/255))}
+    end tell
+  end tell
+end tell
+EOF
+}
+
+function ssh-disabled
+{
+    set_term_bgcolor 255 255 204
+    command ssh $@
+    set_term_bgcolor 255 255 255
+}
+
+if [ -f ~/bin/rmdir.func ]; then
+  . ~/bin/rmdir.func
+fi
+
+
+# Extract many types of compress files
+# Source: http://nparikh.org/notes/zshrc.txt
+extract() {
+    if [ -f "$1" ]; then
+        case "$1" in
+            *.tar.bz2)  tar -jxvf "$1"                        ;;
+            *.tar.gz)   tar -zxvf "$1"                        ;;
+            *.bz2)      bunzip2 "$1"                          ;;
+            *.dmg)      hdiutil mount "$1"                    ;;
+            *.gz)       gunzip "$1"                           ;;
+            *.tar)      tar -xvf "$1"                         ;;
+            *.tbz2)     tar -jxvf "$1"                        ;;
+            *.tgz)      tar -zxvf "$1"                        ;;
+            *.zip)      unzip "$1"                            ;;
+            *.ZIP)      unzip "$1"                            ;;
+            *.pax)      cat "$1" | pax -r                     ;;
+            *.pax.Z)    uncompress "$1" --stdout | pax -r     ;;
+            *.Z)        uncompress "$1"                       ;;
+            *)          echo "'$1' cannot be extracted/mounted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file to extract"
+    fi
+}
+
+
+# Check if resource is served compressed
+check_compression()
+{
+    curl --write-out 'Size (uncompressed) = %{size_download}\n' --silent --output /dev/null $1
+    curl --header 'Accept-Encoding: gzip,deflate,compress' --write-out 'Size (compressed) =   %{size_download}\n' --silent --output /dev/null $1
+    curl --head --header 'Accept-Encoding: gzip,deflate' --silent $1 | grep -i "cache\|content\|vary\|expires"
+}
+
+
+# Get gzipped file size
+gz()
+{
+    local origsize=$(wc -c < "$1")
+    local gzipsize=$(gzip -c "$1" | wc -c)
+    local ratio=$(echo "$gzipsize * 100/ $origsize" | bc -l)
+    local saved=$(echo "($origsize - $gzipsize) * 100/ $origsize" | bc -l)
+    printf "orig: %d bytes\ngzip: %d bytes\nsave: %2.0f%% (%2.0f%%)\n" "$origsize" "$gzipsize" "$saved" "$ratio"
+}
+
+
+# Create a data URL from a file
+dataurl()
+{
+    local mimeType=$(file --mime-type "$1" | cut -d ' ' -f2)
+    if [[ $mimeType == text/* ]]; then
+        mimeType="${mimeType};charset=utf-8"
+    fi
+    echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
+}
