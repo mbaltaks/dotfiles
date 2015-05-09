@@ -1,0 +1,15 @@
+set show-all-if-ambiguous on
+set completion-ignore-case on
+# "\e" is what the "ESC" key looks like to readline
+#"\ep": history-search-backward
+#"\en": history-search-forward
+#"[A": history-search-backward
+#"[B": history-search-forward
+#"\e[A": history-search-backward
+#"\e[B": history-search-forward
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+#set editing-mode vi
+set bell-style visible
