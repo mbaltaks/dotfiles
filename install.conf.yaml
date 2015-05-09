@@ -4,6 +4,7 @@
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
     ~/.gitconfig_local: gitconfig_local
+    ~/.gitignore_global: gitignore_global
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
