@@ -12,6 +12,7 @@
     ~/.vimrc_local: vimrc_local
     ~/.vim: vim/
     ~/.inputrc: inputrc
+    ~/.editrc: editrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
