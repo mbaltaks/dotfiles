@@ -1,5 +1,9 @@
 " Based on http://mislav.uniqpath.com/2011/12/vim-revisited/
 set nocompatible                " choose no compatibility with legacy vi
+
+"" Pathogen
+execute pathogen#infect()
+
 syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
