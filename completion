@@ -8,3 +8,9 @@ fi
 if [ -f /opt/local/share/bash-completion/completions/git ]; then
   source /opt/local/share/bash-completion/completions/git
 fi
+if [ -f /usr/share/git-core/git-completion.bash ]; then
+  source /usr/share/git-core/git-completion.bash
+fi
+if [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash ]; then
+  source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
+fi
