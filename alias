@@ -1,0 +1,30 @@
+#alias bb='open -a "TextWrangler"'
+#alias wg='wget --passive-ftp'
+alias note='date >> ~/Documents/notes.txt; tee -a ~/Documents/notes.txt > /dev/null'
+alias psf='ps -auxww | grep \!:1 | grep -v grep'
+alias l='ls -laFGeh'
+alias t='top -R -F -s 2'
+alias sha1='openssl dgst -sha1'
+# alias sqsh='/usr/local/sqsh/bin/sqsh'
+# alias pbconvert="pbpaste | perl -pe 's/\r\n|\r/\n/g' | pbcopy"
+# alias bbset='SetFile -c \!Rch -t "TEXT" '
+# alias M='svn diff'
+# alias G='svn diff'
+# alias C='edit'
+# alias join='python "/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py"'
+# alias lame='${HOME}/Library/iTunes/Scripts/iTunes-LAME.app/Contents/Resources/lame'
+# alias edit='bbedit'
+alias xclean='rm -r ${HOME}/Library/Developer/Xcode/DerivedData'
+alias tidyjson='python -mjson.tool' # | pygmentize -l javascript'
+export DEVELOPER_DIR='/Applications/Xcode.app/Contents/Developer'
+alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Resources/symbolicatecrash -v'
+# Quick way to rebuild the Launch Services database and get rid
+# of duplicates in the Open With submenu.
+alias fixopenwith="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+alias pythonnotebook='ipython notebook --pylab inline --ip=127.0.0.1 --port=8888'
+alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias screensaver="/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
+#alias dccvs='cvs -z3 -d :ext:mbaltaks@cvs.sourceforge.net:/cvsroot/doublecommand'
+#alias m2cvs='cvs -z3 -d :ext:miggins@projectmagma.net:/usr/home/myth'
+#alias sqlserver='/usr/local/sqsh/bin/sqsh -S gpcsql1 -U username -P password -H host -D database -w 1024'
+# alias sscm='/Users/Data/src/sscm_04/ruby/sscm.rb'
