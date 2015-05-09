@@ -8,6 +8,9 @@ for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env,alias,completion,p
     [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
 
+export RUBY_BUILD_CACHE_PATH="$HOME/.rbenv/cache"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 if [ -f ~/.bashrc_local ]; then
     source ~/.bashrc_local
 fi
