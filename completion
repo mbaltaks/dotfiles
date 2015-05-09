@@ -1,0 +1,10 @@
+# Do not autocomplete when accidentally pressing Tab on an empty line.
+shopt -s no_empty_cmd_completion
+
+# MacPorts Bash shell command completion
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+  . /opt/local/etc/profile.d/bash_completion.sh
+fi
+if [ -f /opt/local/share/bash-completion/completions/git ]; then
+  source /opt/local/share/bash-completion/completions/git
+fi
