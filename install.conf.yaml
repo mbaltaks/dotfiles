@@ -13,6 +13,7 @@
     ~/.vim: vim/
     ~/.inputrc: inputrc
     ~/.editrc: editrc
+    ~/.termcap: termcap
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
