@@ -15,6 +15,8 @@ set tabstop=4 shiftwidth=4
 set expandtab                   " use spaces, not tabs
 set softtabstop=4               " unify
 set backspace=indent,eol,start  " backspace through everything in insert mode
+" Use better-whitespace to auto trim trailing whitespace on save
+autocmd FileType * autocmd BufWritePre <buffer> StripWhitespace
 
 "" Searching
 set hlsearch                    " highlight matches
@@ -30,6 +32,9 @@ else
 endif
 colorscheme solarized
 set guifont=Source\ Code\ Pro:h12
+
+" vim-powerline
+set laststatus=2
 
 let $LOCALFILE=expand("~/.vimrc_local")
 if filereadable($LOCALFILE)
