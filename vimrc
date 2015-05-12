@@ -9,8 +9,10 @@ set encoding=utf-8
 set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 
+set wrap linebreak nolist
+set textwidth=0
+set wrapmargin=0
 "" Whitespace
-set nowrap                      " don't wrap lines
 set tabstop=4 shiftwidth=4
 set expandtab                   " use spaces, not tabs
 set softtabstop=4               " unify
