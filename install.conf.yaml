@@ -3,13 +3,10 @@
 - link:
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
-    ~/.gitconfig_local: gitconfig_local
     ~/.gitignore_global: gitignore_global
     ~/.bashrc: bashrc
-    ~/.bashrc_local: bashrc_local
     ~/.bash_profile: bash_profile
     ~/.vimrc: vimrc
-    ~/.vimrc_local: vimrc_local
     ~/.vim: vim/
     ~/.vim/autoload: vim-pathogen/autoload
     ~/.inputrc: inputrc
