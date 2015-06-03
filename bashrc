@@ -1,3 +1,5 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
 # http://www.gnu.org/software/bash/manual/bashref.html#Bash-Startup-Files
 
 # https://dotfiles.github.io
