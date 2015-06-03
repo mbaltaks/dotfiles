@@ -14,3 +14,8 @@ fi
 if [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash ]; then
   source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
 fi
+
+# For Debian
+if [ -f /etc/bash_completion.d/git ]; then
+  source /etc/bash_completion.d/git
+fi
