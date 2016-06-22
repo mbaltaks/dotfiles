@@ -40,7 +40,7 @@ append "/Users/Data/Applications/Android Studio.app/sdk/platform-tools"
 #PATH=${PATH}:/usr/local/*/bin
 
 # Postgres.app
-append "/Applications/Postgres.app/Contents/Versions/9.4/bin"
+append "/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 PATH="${NEWPATH}:${PATH}"
 export PATH
