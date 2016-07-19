@@ -1,12 +1,21 @@
+export GIT_PS1_SHOWCOLORHINTS=true
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWSTASHSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+#export GIT_PS1_DESCRIBE_STYLE='contains'
+#export GIT_PS1_SHOWUPSTREAM='auto'
+
 if [ -f /opt/local/share/git/git-prompt.sh ]; then
-    . /opt/local/share/git/git-prompt.sh
+    source /opt/local/share/git/git-prompt.sh
 fi
 if [ -f /usr/share/git-core/git-prompt.sh ]; then
-    . /usr/share/git-core/git-prompt.sh
+    source /usr/share/git-core/git-prompt.sh
 fi
 if [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh ]; then
-    . /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
+    source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
 fi
+
+GIT_PS1_SHOWCOLORHINTS=true
 
 function parse_git_dirty
 {
@@ -25,10 +34,36 @@ function real_user
   #echo ${FULLUSER}
 }
 
+GREEN="\[\e[0;32m\]"
+COLOR_NONE="\[\e[0m\]"
+
 #PS1='\h:\W \u\$ '
 #PS1='\h:\w \u\$ '
 #export PS1='\u@\h \w$(__git_ps1 "[%s]")$ '
 #export PS1='\u@\h \w\[\e[0;32m\]$(__git_ps1 "[%s]")\[\e[0m\]$ '
 #export PS1='\u@\h \w$(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]]")$ '
 #export PS1='\u@\h:\w$(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]\[\e[0;31m\]$(parse_git_dirty)\[\e[0m\]]")$ '
-export PS1='$(real_user)@\h:\w$(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]\[\e[0;31m\]$(parse_git_dirty)\[\e[0m\]]")$ '
+#export PS1='$(real_user)@\h:\w$(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]\[\e[0;31m\]$(parse_git_dirty)\[\e[0m\]]")$ '
+#export PS1='$(real_user)@\h:\w$(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]]")$ '
+#export PS1='$(real_user)@\h:\w$(__git_ps1 "[%s]")$ '
+#export PS1VAL='$(real_user)@\h:\w$(__git_ps1 " (%s)")$ '
+export PS1VAL='@\h:\w$(__git_ps1 " ($GREEN%s$COLOR_NONE)")$ '
+
+function set_prompt
+{
+  PS1="${PS1VAL}"
+}
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+#  - stupid gnome-terminal sets only xterm, see https://bugs.launchpad.net/ubuntu/+source/bash/+bug/103929
+#  - Mac OS X sets xterm-256color
+case "$TERM" in
+    xterm-color|xterm|xterm-256color)
+        #PROMPT_COMMAND=set_prompt
+        #PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+        PROMPT_COMMAND='__git_ps1 "$(real_user)@\h:\w" "\\\$ "'
+    ;;
+    *)
+        PS1="${PS1VAL}"
+    ;;
+esac
