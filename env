@@ -2,7 +2,7 @@ export EDITOR=/usr/bin/vi
 export PAGER=/usr/bin/less
 #export PAGER=/opt/local/bin/most
 
-export PGDATA="${HOME}/Library/Application Support/Postgres93/var"
+export PGDATA="${HOME}/Library/Application Support/Postgres/var-9.5"
 
 # Set Display
 DISPLAY=:0.0
