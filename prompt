@@ -47,10 +47,14 @@ COLOR_NONE="\[\e[0m\]"
 #export PS1='$(real_user)@\h:\w$(__git_ps1 "[\[\e[0;32m\]%s\[\e[0m\]]")$ '
 #export PS1='$(real_user)@\h:\w$(__git_ps1 "[%s]")$ '
 #export PS1VAL='$(real_user)@\h:\w$(__git_ps1 " (%s)")$ '
-if [ "function" == `type -t __git_ps1` ]; then
-    export PS1VAL='@\h:\w$(__git_ps1 " ($GREEN%s$COLOR_NONE)")$ '
+
+git_prompt=`type -t __git_ps1`
+if [ "function" == ${git_prompt} ]; then
+    #export PS1VAL='@\h:\w$(__git_ps1 " ($GREEN%s$COLOR_NONE)")$ '
+    export PS1VAL='$(real_user)@\h:\w$(__git_ps1 "[%s]")$ '
 else
-    export PS1VAL='@\h:\w $ '
+    #export PS1VAL='@\h:\w$ '
+    export PS1VAL='$(real_user)@\h:\w$ '
 fi
 
 function set_prompt
@@ -61,12 +65,14 @@ function set_prompt
 # set a fancy prompt (non-color, unless we know we "want" color)
 #  - stupid gnome-terminal sets only xterm, see https://bugs.launchpad.net/ubuntu/+source/bash/+bug/103929
 #  - Mac OS X sets xterm-256color
-if [ "function" == `type -t __git_ps1` ]; then
+if [ "function" == ${git_prompt} ]; then
     case "$TERM" in
         xterm-color|xterm|xterm-256color)
             #PROMPT_COMMAND=set_prompt
             #PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+            # Downside here is that it breaks other things that try to adjust PS1, like virtualenv
             PROMPT_COMMAND='__git_ps1 "$(real_user)@\h:\w" "\\\$ "'
+            #PS1="${PS1VAL}"
         ;;
         *)
             PS1="${PS1VAL}"
