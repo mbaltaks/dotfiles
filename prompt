@@ -49,7 +49,7 @@ COLOR_NONE="\[\e[0m\]"
 #export PS1VAL='$(real_user)@\h:\w$(__git_ps1 " (%s)")$ '
 
 git_prompt=`type -t __git_ps1`
-if [ "function" == ${git_prompt} ]; then
+if [ "functionZ" == ${git_prompt}Z ]; then
     #export PS1VAL='@\h:\w$(__git_ps1 " ($GREEN%s$COLOR_NONE)")$ '
     export PS1VAL='$(real_user)@\h:\w$(__git_ps1 "[%s]")$ '
 else
@@ -65,7 +65,7 @@ function set_prompt
 # set a fancy prompt (non-color, unless we know we "want" color)
 #  - stupid gnome-terminal sets only xterm, see https://bugs.launchpad.net/ubuntu/+source/bash/+bug/103929
 #  - Mac OS X sets xterm-256color
-if [ "function" == ${git_prompt} ]; then
+if [ "functionZ" == ${git_prompt}Z ]; then
     case "$TERM" in
         xterm-color|xterm|xterm-256color)
             #PROMPT_COMMAND=set_prompt
