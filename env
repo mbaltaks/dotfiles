@@ -71,4 +71,7 @@ export LESS=eFiMR
 # Perforce setup
 export P4CONFIG=.p4config
 
-export CODESIGN_ALLOCATE=$(xcrun -find codesign_allocate)
+xcrun=`which xcrun`
+if [ -x "${xcrun}" ]; then
+    export CODESIGN_ALLOCATE=$(xcrun -find codesign_allocate)
+fi
