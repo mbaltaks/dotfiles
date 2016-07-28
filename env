@@ -45,6 +45,7 @@ export LC_ALL="en_AU.UTF-8"
 export LANG="en_AU"
 
 # And I want to search it with the arrow keys
+set -o vi  # to fix "bind: warning: line editing not enabled"
 bind '"[A":history-search-backward'
 bind '"[B":history-search-forward'
 
