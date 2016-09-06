@@ -17,7 +17,6 @@ alias sha1='openssl dgst -sha1'
 alias xclean='rm -r ${HOME}/Library/Developer/Xcode/DerivedData'
 alias tidyjson='python -mjson.tool' # | pygmentize -l javascript'
 export DEVELOPER_DIR='/Applications/Xcode.app/Contents/Developer'
-alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Resources/symbolicatecrash -v'
 # Quick way to rebuild the Launch Services database and get rid
 # of duplicates in the Open With submenu.
 alias fixopenwith="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
@@ -28,3 +27,13 @@ alias screensaver="/System/Library/Frameworks/ScreenSaver.framework/Resources/Sc
 #alias m2cvs='cvs -z3 -d :ext:miggins@projectmagma.net:/usr/home/myth'
 #alias sqlserver='/usr/local/sqsh/bin/sqsh -S gpcsql1 -U username -P password -H host -D database -w 1024'
 # alias sscm='/Users/Data/src/sscm_04/ruby/sscm.rb'
+
+if [ -x "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Resources/symbolicatecrash" ]; then
+    alias symbolicatecrash='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Resources/symbolicatecrash -v'
+fi
+if [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Resources/symbolicatecrash" ]; then
+    alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Resources/symbolicatecrash -v'
+fi
+if [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash" ]; then
+    alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash -v'
+fi
