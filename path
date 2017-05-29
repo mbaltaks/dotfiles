@@ -48,9 +48,9 @@ append "/Applications/Postgres.app/Contents/Versions/latest/bin"
 PATH="${NEWPATH}:${PATH}"
 export PATH
 
-NEW_C_INCLUDE_PATH=${C_INCLUDE_PATH}:/opt/local/include
-C_INCLUDE_PATH=${NEW_C_INCLUDE_PATH}
-export C_INCLUDE_PATH
+# NEW_C_INCLUDE_PATH=${C_INCLUDE_PATH}:/opt/local/include
+# C_INCLUDE_PATH=${NEW_C_INCLUDE_PATH}
+# export C_INCLUDE_PATH
 
 # Add a few extra places to the man path
 # Also add them to /usr/share/misc/man.conf
