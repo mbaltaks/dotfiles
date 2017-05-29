@@ -27,6 +27,9 @@ append "/Applications/Xcode.app/Contents/Developer/Tools"
 # Heroku
 append "/usr/local/heroku/bin"
 
+# Git
+append "/opt/local/share/git/contrib/diff-highlight"
+
 # Android development
 append "/Users/Data/Applications/Android Studio.app/sdk/tools"
 append "/Users/Data/Applications/Android Studio.app/sdk/platform-tools"
