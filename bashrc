@@ -11,7 +11,7 @@
 # Virtualenv activate: source venv/bin/activate
 # sudo bin/rbackup macbookpro > ~/Desktop/"backup-`date`.log"
 
-for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env,alias,completion,prompt,custom}; do
+for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env,alias,completion,prompt,custom,private}; do
     [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
 
