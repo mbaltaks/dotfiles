@@ -28,12 +28,15 @@ alias screensaver="/System/Library/Frameworks/ScreenSaver.framework/Resources/Sc
 #alias sqlserver='/usr/local/sqsh/bin/sqsh -S gpcsql1 -U username -P password -H host -D database -w 1024'
 # alias sscm='/Users/Data/src/sscm_04/ruby/sscm.rb'
 
-if [ -x "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Resources/symbolicatecrash" ]; then
+# Xcode 8
+if [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash" ]; then
+    alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash -v'
+elif [ -x "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Resources/symbolicatecrash" ]; then
     alias symbolicatecrash='/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Resources/symbolicatecrash -v'
-fi
-if [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Resources/symbolicatecrash" ]; then
+elif [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Resources/symbolicatecrash" ]; then
     alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Resources/symbolicatecrash -v'
-fi
-if [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash" ]; then
+elif [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash" ]; then
     alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Resources/symbolicatecrash -v'
+elif [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash" ]; then
+    alias symbolicatecrash='/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash -v'
 fi
