@@ -23,6 +23,8 @@ append "/usr/local/sbin"
 # MacPorts
 append "/opt/local/bin"
 append "/opt/local/sbin"
+append "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin"
+append "/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin"
 
 # Xcode tools
 append "/Applications/Xcode.app/Contents/Developer/Tools"
