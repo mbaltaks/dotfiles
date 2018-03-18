@@ -13,6 +13,9 @@ append()
 append "$HOME/bin"
 append "$HOME/.dotfiles/bin"
 
+# Python / Haskell stack
+append "${HOME}/.local/bin"
+
 # Machine local folders
 append "/usr/local/bin"
 append "/usr/local/sbin"
