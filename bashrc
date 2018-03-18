@@ -6,10 +6,17 @@
 # http://www.anishathalye.com/2014/08/03/managing-your-dotfiles/
 # https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789
 
+# Nix update:
+# nix-channel --update nixpkgs
+# nix-env -u '*'
+# Nix clean:
+# nix-collect-garbage -d
+
 # MacPorts update: sudo port selfupdate && sudo port upgrade -cu --enforce-variants outdated
 # MacPorts clean: sudo port clean --all installed && sudo port uninstall inactive leaves
 # Virtualenv activate: source venv/bin/activate
 # sudo bin/rbackup macbookpro > ~/Desktop/"backup-`date`.log"
+# Homebrew update: brew update && brew upgrade && brew cleanup
 
 for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env,alias,completion,prompt,custom,private}; do
     [ -f "$DOTFILE" ] && source "$DOTFILE"
