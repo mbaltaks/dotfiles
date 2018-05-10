@@ -38,8 +38,9 @@ fi
 # quick calculator
 ? () { echo "$*" | bc -l; }
 
-export RUBY_BUILD_CACHE_PATH="$HOME/.rbenv/cache"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# chruby
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
 
 if [ -f ~/.bashrc_local ]; then
     source ~/.bashrc_local
