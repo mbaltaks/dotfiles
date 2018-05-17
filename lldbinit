@@ -1,2 +1,5 @@
 command alias uikit expr @import UIKit
 command alias foundation expr @import Foundation
+
+# https://github.com/facebook/chisel
+command script import /usr/local/opt/chisel/libexec/fblldb.py
