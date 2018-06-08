@@ -1,0 +1,12 @@
+storage
+compile-cache
+dev
+.npm
+.node-gyp
+
+# MIB added
+.apm/
+blob-store/
+packages/
+recovery/
+split-diff/

@@ -1,0 +1,144 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "c5d3de09-36b5-4026-9b2a-578bcc0fe3b3"
+    js:
+      brace_style: "none"
+      end_with_newline: true
+  "autocomplete-python":
+    addBracketAfterFunction: true
+    addDotAfterModule: true
+    outputProviderErrors: true
+    useKite: false
+  "bracket-matcher":
+    autocompleteBrackets: false
+  build:
+    saveOnBuild: true
+  core:
+    automaticallyUpdate: false
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        ".arcconfig"
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: [
+      "linter-jsl"
+      "linter-cpplint"
+      "goto"
+      "reveal-active-file-context"
+      "pretty-json"
+      "linter-tidy"
+      "language-django"
+      "foldingtext-markdown"
+      "compare-files"
+      "foldingtext-for-atom"
+      "notational-velocity"
+      "switch-header-source"
+      "autocomplete-clang"
+      "color-picker"
+      "minimap"
+      "python-indent"
+      "linter-pycodestyle"
+      "linter-pylint"
+      "term3"
+      "autocomplete-swift"
+      "python-autopep8"
+      "python-debugger"
+      "python-tools"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "*.pyc"
+      "__pycache__"
+      "*.swp"
+    ]
+    projectHome: "/Users/mick/Projects"
+    telemetryConsent: "limited"
+    themes: [
+      "atom-light-ui"
+      "solarized-light-syntax"
+    ]
+  "cursor-history": {}
+  "easy-motion-redux": {}
+  editor:
+    autoIndentOnPaste: false
+    fontFamily: "Source Code Pro"
+    invisibles: {}
+    tabLength: 4
+  "exception-reporting":
+    userId: "3e8c2898-1285-5e51-b1e6-6ec6ee05c29f"
+  "git-blame":
+    columnWidth: 408
+  goto: {}
+  "haskell-ghc-mod":
+    additionalPathDirectories: [
+      "$HOME/.local/bin"
+      "/usr/local/bin"
+    ]
+  "ide-haskell":
+    onSavePrettify: true
+  linter: {}
+  "linter-clang":
+    clangDefaultObjCFlags: "-Wall -Werror -lobjc -fobjc-arc -fmodules -framework XCTest -framework Foundation -F$(xcode-select --print-path)/Library/Frameworks"
+    clangIncludePaths: [
+      ". /usr/local/Cellar/qt/5.8.0_2/include"
+    ]
+  "linter-flake8":
+    flakeErrors: true
+    ignoreErrorCodes: [
+      "E501"
+    ]
+    pycodestyleErrorsToWarnings: true
+  "linter-pep8":
+    ignoreErrorCodes: [
+      "E501"
+    ]
+    maxLineLength: 100
+  "linter-pycodestyle":
+    maxLineLength: 150
+  "linter-ui-default":
+    panelHeight: 309
+  minimap:
+    autoToggle: false
+  "notational-velocity": {}
+  nuclide:
+    "nuclide-home":
+      showHome: false
+  "python-autopep8":
+    formatOnSave: true
+    maxLineLength: 79
+  "spell-check": {}
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    scrollSyncType: "Vertical + Horizontal"
+  "status-bar": {}
+  "tree-view":
+    hideIgnoredNames: true
+    sortFoldersBeforeFiles: false
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+  "vim-mode-plus":
+    useClipboardAsDefaultRegister: false
+  welcome:
+    showOnStartup: false
+".hjson.source":
+  editor:
+    autoIndent: true
+".source.swift":
+  editor:
+    tabLength: 4
