@@ -74,8 +74,10 @@
   "easy-motion-redux": {}
   editor:
     autoIndentOnPaste: false
+    decreaseIndentPattern: ""
     fontFamily: "Source Code Pro"
     fontSize: 12
+    increaseIndentPattern: ""
     invisibles: {}
     tabLength: 4
   "exception-reporting":
@@ -137,9 +139,19 @@
     useClipboardAsDefaultRegister: false
   welcome:
     showOnStartup: false
-".hjson.source":
+".c.source":
   editor:
-    autoIndent: true
+    decreaseIndentPattern: ""
+    increaseIndentPattern: ""
+".objc.source":
+  editor:
+    decreaseIndentPattern: ""
+    increaseIndentPattern: ""
+".python.source":
+  editor:
+    decreaseIndentPattern: ""
+    increaseIndentPattern: ""
 ".source.swift":
   editor:
-    tabLength: 4
+    decreaseIndentPattern: ""
+    increaseIndentPattern: ""
