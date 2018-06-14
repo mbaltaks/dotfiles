@@ -12,6 +12,7 @@
     ~/.inputrc: inputrc
     ~/.editrc: editrc
     ~/.termcap: termcap
+    ~/.atom: atom
     ~/.gdbinit: gdbinit
     ~/.lldbinit: lldbinit
 
