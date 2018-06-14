@@ -75,6 +75,7 @@
   editor:
     autoIndentOnPaste: false
     fontFamily: "Source Code Pro"
+    fontSize: 12
     invisibles: {}
     tabLength: 4
   "exception-reporting":
