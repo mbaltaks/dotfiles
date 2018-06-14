@@ -15,7 +15,7 @@
 # MacPorts update: sudo port selfupdate && sudo port upgrade -cu --enforce-variants outdated
 # MacPorts clean: sudo port clean --all installed && sudo port uninstall inactive leaves
 # Virtualenv activate: source venv/bin/activate
-# sudo bin/rbackup macbookpro > ~/Desktop/"backup-`date`.log"
+# sudo bin/rbackup macbookpro > ~/Library/Logs/rbackup/"backup-`date`.log"
 # Homebrew update: brew update && brew upgrade && brew cleanup
 
 for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env,alias,completion,prompt,custom,private}; do
