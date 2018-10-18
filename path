@@ -36,8 +36,8 @@ append "/usr/local/heroku/bin"
 append "/opt/local/share/git/contrib/diff-highlight"
 
 # Android development
-append "/Users/Data/Applications/Android Studio.app/sdk/tools"
-append "/Users/Data/Applications/Android Studio.app/sdk/platform-tools"
+append "$HOME/Applications/Android Studio.app/sdk/tools"
+append "$HOME/Applications/Android Studio.app/sdk/platform-tools"
 
 # WebKit JavaScript interpreter
 append "/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources"
