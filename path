@@ -50,6 +50,9 @@ append "/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources
 # Postgres.app
 append "/Applications/Postgres.app/Contents/Versions/latest/bin"
 
+# Visual Studio Code
+append "$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 PATH="${NEWPATH}:${PATH}"
 export PATH
 
