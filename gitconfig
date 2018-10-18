@@ -5,6 +5,7 @@
 	cia = commit -v -a
 	co = checkout
 	cp = cherry-pick
+	b = branch
 
 [core]
 	excludesfile = ~/.gitignore_global
@@ -24,3 +25,5 @@
 # Allow local customizations in the .gitconfig_local file
 [include]
 	path = ~/.gitconfig_local
+[credential]
+	helper = osxkeychain
