@@ -1,0 +1,8 @@
+{
+    "workbench.colorTheme": "Solarized Light",
+    "editor.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+    "editor.renderWhitespace": "boundary",
+    "editor.scrollBeyondLastLine": false,
+    "editor.scrollBeyondLastColumn": 3,
+    "editor.wordWrap": "bounded"
+}
