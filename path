@@ -40,7 +40,7 @@ append "/Users/Data/Applications/Android Studio.app/sdk/tools"
 append "/Users/Data/Applications/Android Studio.app/sdk/platform-tools"
 
 # WebKit JavaScript interpreter
-#append "/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources"
+append "/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources"
 #append "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin"
 
 # Fink
