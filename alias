@@ -28,6 +28,7 @@ alias screensaver="/System/Library/Frameworks/ScreenSaver.framework/Resources/Sc
 #alias m2cvs='cvs -z3 -d :ext:miggins@projectmagma.net:/usr/home/myth'
 #alias sqlserver='/usr/local/sqsh/bin/sqsh -S gpcsql1 -U username -P password -H host -D database -w 1024'
 # alias sscm='/Users/Data/src/sscm_04/ruby/sscm.rb'
+alias edit='bbedit'
 
 # Xcode 8
 if [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash" ]; then
