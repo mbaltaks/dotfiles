@@ -48,3 +48,8 @@ show()
         echo 'end tell';
     } | osascript;
 }
+
+bwana()
+{
+    open -a "/Users/Data/Applications/Bwana.app" man://$1
+}
