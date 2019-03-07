@@ -1,8 +1,24 @@
 {
-    "workbench.colorTheme": "Solarized Light",
     "editor.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
-    "editor.renderWhitespace": "boundary",
     "editor.scrollBeyondLastLine": false,
     "editor.scrollBeyondLastColumn": 3,
-    "editor.wordWrap": "bounded"
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
+    "editor.renderControlCharacters": true,
+    "editor.renderWhitespace": "none",
+    "workbench.colorTheme": "Solarized Light",
+    "workbench.statusBar.feedback.visible": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "explorer.confirmDelete": false,
+    "window.zoomLevel": 0,
+    "search.useIgnoreFiles": true,
+    "debug.node.autoAttach": "off",
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "vim.enableNeovim": false,
+    "vim.whichwrap": "h,l,<,>,[,]",
+    "python.venvPath": "/Users/mick/.local/share/virtualenvs",
+    "breadcrumbs.enabled": true
 }
