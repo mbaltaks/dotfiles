@@ -18,7 +18,7 @@
     "debug.node.autoAttach": "off",
     "vim.neovimPath": "/usr/local/bin/nvim",
     "vim.enableNeovim": false,
-    "vim.whichwrap": "h,l,<,>,[,]",
+    "vim.whichwrap": "[,]",
     "python.venvPath": "/Users/mick/.local/share/virtualenvs",
     "breadcrumbs.enabled": true
 }
