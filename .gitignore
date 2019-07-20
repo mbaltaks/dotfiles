@@ -2,3 +2,4 @@ vim/autoload
 private
 vscode/User/workspaceStorage/
 vscode/User/globalStorage/
+*_local
