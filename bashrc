@@ -39,8 +39,12 @@ fi
 ? () { echo "$*" | bc -l; }
 
 # chruby
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+#source /usr/local/opt/chruby/share/chruby/chruby.sh
+#source /usr/local/opt/chruby/share/chruby/auto.sh
+
+# asdf, for managing language version installs
+source /usr/local/opt/asdf/asdf.sh
+source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 
 if [ -f ~/.bashrc_local ]; then
     source ~/.bashrc_local

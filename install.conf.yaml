@@ -16,6 +16,7 @@
     ~/.atom: atom
     ~/.gdbinit: gdbinit
     ~/.lldbinit: lldbinit
+    ~/.asdfrc: asdfrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
