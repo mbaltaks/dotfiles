@@ -17,6 +17,7 @@
 # Virtualenv activate: source venv/bin/activate
 # sudo bin/rbackup macbookpro > ~/Library/Logs/rbackup/"backup-`date`.log"
 # Homebrew update: brew update && brew upgrade && brew cleanup
+# softwareupdate --list --include-config-data
 
 for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env,alias,completion,prompt,custom,private}; do
     [ -f "$DOTFILE" ] && source "$DOTFILE"
