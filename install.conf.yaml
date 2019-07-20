@@ -3,6 +3,7 @@
 - link:
     ~/.dotfiles: ''
     ~/.gitconfig: gitconfig
+    ~/.gitconfig_local: gitconfig_local
     ~/.gitignore_global: gitignore_global
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
