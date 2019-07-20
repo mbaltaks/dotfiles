@@ -17,6 +17,7 @@
     ~/.gdbinit: gdbinit
     ~/.lldbinit: lldbinit
     ~/.asdfrc: asdfrc
+    ~/Library/Application Support/Code/User: vscode/User
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
