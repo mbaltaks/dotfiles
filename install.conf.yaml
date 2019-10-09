@@ -21,7 +21,9 @@
     ~/Library/Application Support/BBEdit/Color Schemes: bbedit/Color Schemes
     ~/Library/Application Support/BBEdit/Language Modules: bbedit/Language Modules
     ~/Library/Application Support/BBEdit/Scripts: bbedit/Scripts
-    ~/Library/Application Support/BBEdit/Setup/Grep Patterns.xml: bbedit/Grep Patterns.xml
+    ~/Library/Application Support/BBEdit/Setup/Grep Patterns.xml:
+      path: bbedit/Grep Patterns.xml
+      create: true
     ~/Library/Application Support/BBEdit/Text Filters: bbedit/Text Filters
     ~/Library/Application Support/BBEdit/Unix Support: bbedit/Unix Support
     ~/Library/Preferences/com.barebones.bbedit.plist: bbedit/com.barebones.bbedit.plist
