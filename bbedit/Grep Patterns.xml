@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SavedGrepPatterns</key>
+	<array>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>/* \1 */</string>
+			<key>SearchPattern</key>
+			<string>{([^}]*)}</string>
+			<key>Title</key>
+			<string>Pascal Comment to C Comment</string>
+			<key>UniqueID</key>
+			<string>C2C758AA-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>/* \1 */</string>
+			<key>SearchPattern</key>
+			<string>//(.*)</string>
+			<key>Title</key>
+			<string>C++ Comment to C Comment</string>
+			<key>UniqueID</key>
+			<string>C2C75AEF-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\t</string>
+			<key>SearchPattern</key>
+			<string> +</string>
+			<key>Title</key>
+			<string>Run of Spaces to One Tab</string>
+			<key>UniqueID</key>
+			<string>C2C75B7A-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string></string>
+			<key>SearchPattern</key>
+			<string>^[^ \t#\r/@][^\r]*\([^\r]*\)$</string>
+			<key>Title</key>
+			<string>C Function Header</string>
+			<key>UniqueID</key>
+			<string>C2C75C02-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>{\1}</string>
+			<key>SearchPattern</key>
+			<string>/\*([^\r]*)\*/</string>
+			<key>Title</key>
+			<string>C Comment to Pascal Comment</string>
+			<key>UniqueID</key>
+			<string>C2C75C86-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1\2\t\3</string>
+			<key>SearchPattern</key>
+			<string>(.*)(\t\t*)(.*)</string>
+			<key>Title</key>
+			<string>Shift Variables Right</string>
+			<key>UniqueID</key>
+			<string>C2C75D0A-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1\3\4</string>
+			<key>SearchPattern</key>
+			<string>(.*)(\t)(\t*)(.*)</string>
+			<key>Title</key>
+			<string>Shift Variables Left</string>
+			<key>UniqueID</key>
+			<string>C2C75D8D-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1\L\2\E\3</string>
+			<key>SearchPattern</key>
+			<string>(&lt;img [^&gt;]*src\s*=\s*")([^"]+)("[^&gt;]*&gt;)</string>
+			<key>Title</key>
+			<string>Lower Case SRC values in IMG tags</string>
+			<key>UniqueID</key>
+			<string>C2C75E13-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1\L\2\E\3</string>
+			<key>SearchPattern</key>
+			<string>(&lt;a [^&gt;]*href\s*=\s*")([^"]+)("[^&gt;]*&gt;)</string>
+			<key>Title</key>
+			<string>Lower Case HREF values in A tags</string>
+			<key>UniqueID</key>
+			<string>C2C75E96-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1</string>
+			<key>SearchPattern</key>
+			<string>^[^\t]+\t([^\t]+)</string>
+			<key>Title</key>
+			<string>Column #2</string>
+			<key>UniqueID</key>
+			<string>C2C75F1E-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>foo bar</string>
+			<key>SearchPattern</key>
+			<string>(\d+\.){3}\d+</string>
+			<key>Title</key>
+			<string>Dotted Quad</string>
+			<key>UniqueID</key>
+			<string>C2C75FA0-64E9-11D9-AF90-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>'\1',</string>
+			<key>SearchPattern</key>
+			<string>([0-9]+)</string>
+			<key>Title</key>
+			<string>Column to SQL set</string>
+			<key>UniqueID</key>
+			<string>23113FC4-69D1-11D9-94FD-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>insert into UUT (SO, CreateDate, SPrefix, Seq, SeqLen, SSuffix, Serial) values (1004895, getdate(), 'SIN0000', \1, 3, '', dbo.SerialCombine('SIN0000', \1, 3, ''))</string>
+			<key>SearchPattern</key>
+			<string>'([0-9]+)',</string>
+			<key>Title</key>
+			<string>Comma list to SQL insert rows</string>
+			<key>UniqueID</key>
+			<string>36347000-69D1-11D9-94FD-000A95E1DE96</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>"\2"</string>
+			<key>SearchPattern</key>
+			<string>&lt;tr(.)*href="(.+)"(.)*</string>
+			<key>Title</key>
+			<string>Extract URL from html table</string>
+			<key>UniqueID</key>
+			<string>5EB45BAE-91B0-11D9-8C63-000A95828168</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1</string>
+			<key>SearchPattern</key>
+			<string>(LEA[0-9]{8}).+</string>
+			<key>Title</key>
+			<string>Select only Stratex serials</string>
+			<key>UniqueID</key>
+			<string>27B8AEA4-A7B8-11D9-8EF2-000A95828168</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1 = $rs-&gt;fields[\1_col];</string>
+			<key>SearchPattern</key>
+			<string>[\t]*(.+)_col.+;</string>
+			<key>Title</key>
+			<string>bulk modify code lines</string>
+			<key>UniqueID</key>
+			<string>2C3656CC-CD74-11D9-9DBE-000A95828168</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1</string>
+			<key>SearchPattern</key>
+			<string>\$rs-&gt;fields\[(\$[a-z]+)_col\]</string>
+			<key>Title</key>
+			<string>replace many instanaces within one line</string>
+			<key>UniqueID</key>
+			<string>0284B3DD-CD75-11D9-9DBE-000A95828168</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>insert into @serials (prefix, seq, suffix) select '\1' as prefix, '\2' as seq, '\3' as suffix</string>
+			<key>SearchPattern</key>
+			<string>(....)(..)(..)</string>
+			<key>Title</key>
+			<string>ingenico serials to sql inserts</string>
+			<key>UniqueID</key>
+			<string>ABBA164E-EC4C-11D9-8285-000A95828168</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string></string>
+			<key>SearchPattern</key>
+			<string>[ \t]+$</string>
+			<key>Title</key>
+			<string>Trailing whitespace</string>
+			<key>UniqueID</key>
+			<string>EACE2900-1EA2-4F6A-A155-D81F7BAA1A8A</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>insert into @t values ('\1', \2)</string>
+			<key>SearchPattern</key>
+			<string>^([a-zA-Z0-9-]+),([0-9]+)$</string>
+			<key>Title</key>
+			<string>part testid list to sql set</string>
+			<key>UniqueID</key>
+			<string>3081EC2F-ADA2-4A21-94F9-BD181E925471</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1,\2</string>
+			<key>SearchPattern</key>
+			<string>^([A-Za-z0-9-]+),([0-9]+),1,8,1.+$</string>
+			<key>Title</key>
+			<string>Parser conf to part testid list</string>
+			<key>UniqueID</key>
+			<string>468B0BA5-993F-463B-B724-9B4CDAA66576</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>TEL;CELL:\1</string>
+			<key>SearchPattern</key>
+			<string>^TEL:([0-9]+)$</string>
+			<key>Title</key>
+			<string>Fix TEL vcf lines</string>
+			<key>UniqueID</key>
+			<string>9D2CC7E5-FE54-42A1-8CF2-A5B073229293</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>N:\2;\1;;;</string>
+			<key>SearchPattern</key>
+			<string>^N:([a-zA-Z]+) ([a-zA-Z]+);;;;$</string>
+			<key>Title</key>
+			<string>Fix name vcf lines</string>
+			<key>UniqueID</key>
+			<string>9D7852E9-B14C-414D-810F-3C63A07FA12E</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\r&lt;\1</string>
+			<key>SearchPattern</key>
+			<string>&lt;([a-zA-Z]+)</string>
+			<key>Title</key>
+			<string>break long html lines</string>
+			<key>UniqueID</key>
+			<string>5D669AF9-459A-4FA7-BF15-0A7B8E7A45B5</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>&lt;inet&gt;\1&lt;/inet&gt;</string>
+			<key>SearchPattern</key>
+			<string>&lt;emphasis&gt;([0-9]+(\.[0-9]+){3})&lt;/emphasis&gt;</string>
+			<key>Title</key>
+			<string>replace tags around IPv4 address</string>
+			<key>UniqueID</key>
+			<string>41CBB363-2B57-44A6-9997-A1B0813132F8</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1\2\3\4\5\6\7\2 - \5</string>
+			<key>SearchPattern</key>
+			<string>(.+/topics/)(.+?)(/)(Lists/)*(.+?)(/)(.+/oldtopics/)</string>
+			<key>Title</key>
+			<string>Parts of URL to New URL</string>
+			<key>UniqueID</key>
+			<string>2319D0B4-669A-423E-9EDF-0EC0D64186BE</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string></string>
+			<key>SearchPattern</key>
+			<string>[ \t]+$</string>
+			<key>Title</key>
+			<string>Remove trailing whitespace</string>
+			<key>UniqueID</key>
+			<string>1CBCF673-497F-4E72-8389-19CB39B3F59E</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1</string>
+			<key>SearchPattern</key>
+			<string>^(.*?),(.*)$</string>
+			<key>Title</key>
+			<string>Non greedy matching csv</string>
+			<key>UniqueID</key>
+			<string>A3925B08-5F36-4AAB-ACB1-06351E30E4A9</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1c:\\logs\\redmond\\redmond-\2-\3-\4-\5-\6</string>
+			<key>SearchPattern</key>
+			<string>^(.+?)c:\\logs\\redmond\\redmond-/(.+?)/(.+?)/(.+?)/(.+?)/(.+?)$</string>
+			<key>Title</key>
+			<string>Fix log output for data copy script</string>
+			<key>UniqueID</key>
+			<string>5B217C62-FB99-4A0F-8F4C-48384A60E42A</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\6.\5.\4.\3.in-addr.arpa.\tIN\tPTR\t\1\t\7</string>
+			<key>SearchPattern</key>
+			<string>(^[a-z0-9.]+)([ \t]+IN[ \t]+A[ \t]+)([0-9]+).([0-9]+).([0-9]+).([0-9]+$)([.]*)</string>
+			<key>Title</key>
+			<string>Reverse DNS from Forward</string>
+			<key>UniqueID</key>
+			<string>F5E76FE1-6B0F-48E1-8F2D-AD5BD8AF13D7</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string></string>
+			<key>SearchPattern</key>
+			<string>(^[ ]+)</string>
+			<key>Title</key>
+			<string>Remove beginning spaces</string>
+			<key>UniqueID</key>
+			<string>5BF585E2-6E5C-47B0-84A4-8E29AC9F5F3D</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\6.\5.\4.\3.in-addr.arpa.\tIN\tPTR\t\1\t\7</string>
+			<key>SearchPattern</key>
+			<string>(^[ \t]+)(If)([ ]).([0-9]+).([0-9]+).([0-9]+$)([.]*)</string>
+			<key>Title</key>
+			<string>Start at VB if to C (or JS) if</string>
+			<key>UniqueID</key>
+			<string>EA77FA5B-204E-44A8-8BA4-533E2DB7D6AE</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string></string>
+			<key>SearchPattern</key>
+			<string>end.+$</string>
+			<key>Title</key>
+			<string>Remove end and anything else after</string>
+			<key>UniqueID</key>
+			<string>BF7D08E7-81AC-4522-9AAA-FE5453625913</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>"\1",</string>
+			<key>SearchPattern</key>
+			<string>(^[0-9]+)</string>
+			<key>Title</key>
+			<string>Add to front and back of list</string>
+			<key>UniqueID</key>
+			<string>C3461805-90E8-4F98-A73A-CB70C94AC94D</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>FOUNDATION_EXPORT \1\2;</string>
+			<key>SearchPattern</key>
+			<string>(.*)(MIB.+) = (.*);</string>
+			<key>Title</key>
+			<string>extern const C variable</string>
+			<key>UniqueID</key>
+			<string>FA2BD27D-7FBC-44CC-837C-30CBA37224AF</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\L\1</string>
+			<key>SearchPattern</key>
+			<string>([0-9A-F]{8}-[0-9A-F]{4}-[1-5][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12})</string>
+			<key>Title</key>
+			<string>Lowercase all uppercase UUIDs</string>
+			<key>UniqueID</key>
+			<string>3F159141-DEAA-42FA-80E1-B3486A66DADE</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\u\1</string>
+			<key>SearchPattern</key>
+			<string>_([a-zA-Z])</string>
+			<key>Title</key>
+			<string>snake case to camel case</string>
+			<key>UniqueID</key>
+			<string>0712FED0-0FA2-4EFA-ADE7-6DB2CAFD6AC8</string>
+		</dict>
+	</array>
+</dict>
+</plist>
