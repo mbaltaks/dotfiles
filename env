@@ -76,3 +76,5 @@ xcrun=`which xcrun`
 if [ -x "${xcrun}" ]; then
     export CODESIGN_ALLOCATE=$(xcrun -find codesign_allocate)
 fi
+
+export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
