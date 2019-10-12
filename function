@@ -140,3 +140,84 @@ dataurl()
     fi
     echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
 }
+
+
+# -------------------------
+# zsh
+
+git-prompt-info() {
+  git rev-parse --is-inside-work-tree &>/dev/null || return
+
+  echo " %F{green}($(current-git-branch)%f $(git-dirty)%F{green})%f"
+}
+
+current-git-branch() {
+  git symbolic-ref --short -q HEAD
+}
+
+git-dirty() {
+  test -z "$(command git status --porcelain --ignore-submodules -unormal)"
+  if [[ $? -eq 1 ]]; then
+    echo '%F{red}✗%f'
+  else
+    echo '%F{green}✔%f'
+  fi
+}
+
+expand-or-complete-with-waiting-dots() {
+  echo -n "\e[31m......\e[0m"
+  zle expand-or-complete
+  zle redisplay
+}
+
+insert-last-command-output() {
+  LBUFFER+="$(eval $history[$((HISTCMD-1))])"
+}
+
+fancy-ctrl-z() {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+
+exit-shell() {
+  exit
+}
+
+start-paste() {
+  bindkey -A paste main
+}
+
+end-paste() {
+  bindkey -e
+  LBUFFER+=$_paste_content
+  unset _paste_content
+}
+
+paste-insert() {
+  _paste_content+=$KEYS
+}
+
+# https://www.pedaldrivenprogramming.com/2018/09/simple-virtualenv-auto-activation-zsh/
+function _virtualenv_auto_activate() {
+    if [[ -d "venv" ]]; then
+        _VENV_PATH="venv"
+
+        # Check to see if already activated to avoid redundant activating
+        if [[ "$VIRTUAL_ENV" != $_VENV_PATH ]]; then
+            source $_VENV_PATH/bin/activate
+        fi
+    fi
+}
+
+function venvconnect (){
+    if [[ -n $VIRTUAL_ENV ]]; then
+        echo $(basename $VIRTUAL_ENV) > .venv
+    else
+        echo "Activate a virtualenv first"
+    fi
+}

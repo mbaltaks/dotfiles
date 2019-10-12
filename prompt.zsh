@@ -1,3 +1,37 @@
+export PROMPT='%~$(git-prompt-info)$ '
+
+
+# function prompt_custom_precmd {
+#   git-info
+# }
+
+# function prompt_custom_setup {
+#   setopt LOCAL_OPTIONS
+#   unsetopt XTRACE KSH_ARRAYS
+#   prompt_opts=(cr percent subst)
+
+#   # Load required functions.
+#   autoload -Uz add-zsh-hook
+
+#   # Add hook for calling git-info before each command.
+#   add-zsh-hook precmd prompt_custom_precmd
+
+#   # Set git-info parameters.
+#   zstyle ':prezto:module:git:info' verbose 'yes'
+#   zstyle ':prezto:module:git:info:branch' format '%F{green}%b%f'
+#   zstyle ':prezto:module:git:info:clean' format ' %F{green}✔%f'
+#   zstyle ':prezto:module:git:info:dirty' format ' %F{red}✗%f'
+#   zstyle ':prezto:module:git:info:keys' format \
+#     'prompt' ' %F{green}(%f$(coalesce "%b" "%p" "%c")${git_info[rprompt]}%s%F{green})%f' \
+#     'rprompt' '%C%D'
+
+#   # Define prompts.
+#   PROMPT='%~${(e)git_info[prompt]}$ '
+#   RPROMPT=''
+# }
+
+# prompt_custom_setup "$@"
+
 # export GIT_PS1_SHOWCOLORHINTS=true
 # export GIT_PS1_SHOWDIRTYSTATE=true
 # export GIT_PS1_SHOWSTASHSTATE=true

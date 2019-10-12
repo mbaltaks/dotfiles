@@ -6,11 +6,12 @@
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# fi
 
 # Customize to your needs...
+# http://jeromedalbert.com/migrate-from-oh-my-zsh-to-prezto/
 
 
 # ~/.zshrc: executed by zsh(1) for non-login shells.
