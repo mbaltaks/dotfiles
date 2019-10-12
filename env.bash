@@ -77,4 +77,6 @@ if [ -x "${xcrun}" ]; then
     export CODESIGN_ALLOCATE=$(xcrun -find codesign_allocate)
 fi
 
+export JAVA_HOME=`/usr/libexec/java_home`
+
 export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"

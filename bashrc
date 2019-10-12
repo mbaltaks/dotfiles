@@ -19,7 +19,7 @@
 # Homebrew update: brew update && brew upgrade && brew cleanup
 # softwareupdate --list --include-config-data
 
-for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env,alias,completion,prompt,custom,private}; do
+for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.bash,alias,completion.bash,prompt.bash,custom,private}; do
     [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
 

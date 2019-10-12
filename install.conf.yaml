@@ -7,6 +7,13 @@
     ~/.gitignore_global: gitignore_global
     ~/.bashrc: bashrc
     ~/.bash_profile: bash_profile
+    ~/.zlogin: zlogin
+    ~/.zlogout: zlogout
+    ~/.zpreztorc: zpreztorc
+    ~/.zprofile: zprofile
+    ~/.zshenv: zshenv
+    ~/.zshrc: zshrc
+    ~/.zprezto: prezto
     ~/.vimrc: vimrc
     ~/.vim: vim/
     ~/.vim/autoload: vim-pathogen/autoload

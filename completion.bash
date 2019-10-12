@@ -19,3 +19,5 @@ fi
 if [ -f /etc/bash_completion.d/git ]; then
   source /etc/bash_completion.d/git
 fi
+
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion

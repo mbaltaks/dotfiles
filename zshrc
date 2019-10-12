@@ -1,3 +1,18 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+
 # ~/.zshrc: executed by zsh(1) for non-login shells.
 
 # https://dotfiles.github.io
@@ -24,14 +39,14 @@ for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.zsh,alias,completi
     [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
 
-if [ -d /opt/local/etc/profile.d ]; then
-  for i in /opt/local/etc/profile.d/*.sh; do
-    if [ -r $i ]; then
-      . $i
-    fi
-  done
-  unset i
-fi
+# if [ -d /opt/local/etc/profile.d ]; then
+#   for i in /opt/local/etc/profile.d/*.sh; do
+#     if [ -r $i ]; then
+#       . $i
+#     fi
+#   done
+#   unset i
+# fi
 
 # quick calculator
 # ? () { echo "$*" | bc -l; }
@@ -43,5 +58,3 @@ fi
 # replaces nvm, rvm/chruby/rbenv, etc
 #source $(brew --prefix asdf)/asdf.sh
 source /usr/local/opt/asdf/asdf.sh
-
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
