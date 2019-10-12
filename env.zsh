@@ -1,8 +1,8 @@
-export EDITOR=/usr/bin/vi
-export PAGER=/usr/bin/less
+export EDITOR=vi
+export PAGER=less
 #export PAGER=/opt/local/bin/most
 
-export PGDATA="${HOME}/Library/Application Support/Postgres/var-9.5"
+# export PGDATA="${HOME}/Library/Application Support/Postgres/var-9.5"
 
 # Set Display
 DISPLAY=:0.0
@@ -13,30 +13,30 @@ export SD_REPO=${HOME}/sd
 #stty erase 
 
 # supposedly ANSI colours
-set noglob
-export TERMCAP=`cat ${HOME}/.termcap`
-unset noglob
+# set noglob
+# export TERMCAP=`cat ${HOME}/.termcap`
+# unset noglob
 
 # Colour support
-export CLICOLOR=1
+# export CLICOLOR=1
 # Forcing colours can break some scripts, like agvtool.
 #export CLICOLOR_FORCE=1
 #export LSCOLORS=ExFxCxDxBxegedabagacad
-export LSCOLORS=gxfxcxdxbxegedabagacad
+# export LSCOLORS=gxfxcxdxbxegedabagacad
 
 #set -g default-terminal "screen-256color"
 
-alias ^H='stty erase ^H'
+# alias ^H='stty erase ^H'
 # alias ^?='stty errase ^?'
 
 # I want to keep some history
 # shopt -s histappend
 # RAM history size
-export HISTSIZE=4096
+# export HISTSIZE=4096
 # File history size
-export HISTFILESIZE=16384
-export HISTCONTROL=erasedups
-export PROMPT_COMMAND='history -a'
+# export HISTFILESIZE=16384
+# export HISTCONTROL=erasedups
+# export PROMPT_COMMAND='history -a'
 #export HISTIGNORE="&:ls:rm *:[bf]g:exit:l:more *:m *:history::cd:..:pine:foo:fink*:top:clear"
 #export SAVEHIST=4096
 
@@ -45,7 +45,7 @@ export LC_ALL="en_AU.UTF-8"
 export LANG="en_AU"
 
 # And I want to search it with the arrow keys
-set -o vi  # to fix "bind: warning: line editing not enabled"
+# set -o vi  # to fix "bind: warning: line editing not enabled"
 # bind '"[A":history-search-backward'
 # bind '"[B":history-search-forward'
 

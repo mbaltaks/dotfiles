@@ -1,7 +1,7 @@
-export GIT_PS1_SHOWCOLORHINTS=true
-export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWSTASHSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
+# export GIT_PS1_SHOWCOLORHINTS=true
+# export GIT_PS1_SHOWDIRTYSTATE=true
+# export GIT_PS1_SHOWSTASHSTATE=true
+# export GIT_PS1_SHOWUNTRACKEDFILES=true
 #export GIT_PS1_DESCRIBE_STYLE='contains'
 #export GIT_PS1_SHOWUPSTREAM='auto'
 
@@ -15,7 +15,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 #     source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
 # fi
 
-GIT_PS1_SHOWCOLORHINTS=true
+# GIT_PS1_SHOWCOLORHINTS=true
 
 # function parse_git_dirty
 # {
