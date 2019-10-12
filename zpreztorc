@@ -35,7 +35,16 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt'
+  'prompt' \
+  'git' \
+  'macports' \
+  'homebrew' \
+  'haskell' \
+  'osx' \
+  'python' \
+  'rsync' \
+  'ssh' \
+  'history-substring-search'
 
 #
 # Autosuggestions
