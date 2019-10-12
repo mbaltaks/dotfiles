@@ -17,25 +17,25 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 GIT_PS1_SHOWCOLORHINTS=true
 
-function parse_git_dirty
-{
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
-}
+# function parse_git_dirty
+# {
+#   [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
+# }
 
-function real_user
-{
-  LOGNAME=$(logname)
-  if [ "${LOGNAME}" == "${USER}" ]; then
-    echo "${LOGNAME}"
-  else
-    echo "$(tput setaf 1)${LOGNAME}$(tput sgr0) as ${USER}"
-  fi
-  #FULLUSER=$([ "${LOGNAME}" = "${USER}" ] && echo ${USER} || echo '$(tput setaf 1)${LOGNAME}$(tput sgr0) as ${USER}')
-  #echo ${FULLUSER}
-}
+# function real_user
+# {
+#   LOGNAME=$(logname)
+#   if [ "${LOGNAME}" == "${USER}" ]; then
+#     echo "${LOGNAME}"
+#   else
+#     echo "$(tput setaf 1)${LOGNAME}$(tput sgr0) as ${USER}"
+#   fi
+#   #FULLUSER=$([ "${LOGNAME}" = "${USER}" ] && echo ${USER} || echo '$(tput setaf 1)${LOGNAME}$(tput sgr0) as ${USER}')
+#   #echo ${FULLUSER}
+# }
 
-GREEN="\[\e[0;32m\]"
-COLOR_NONE="\[\e[0m\]"
+# GREEN="\[\e[0;32m\]"
+# COLOR_NONE="\[\e[0m\]"
 
 #PS1='\h:\W \u\$ '
 #PS1='\h:\w \u\$ '
@@ -57,10 +57,10 @@ COLOR_NONE="\[\e[0m\]"
 #     export PS1VAL='$(real_user)@\h:\w$ '
 # fi
 
-function set_prompt
-{
-  PS1="${PS1VAL}"
-}
+# function set_prompt
+# {
+#   PS1="${PS1VAL}"
+# }
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 #  - stupid gnome-terminal sets only xterm, see https://bugs.launchpad.net/ubuntu/+source/bash/+bug/103929
