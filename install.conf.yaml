@@ -1,7 +1,7 @@
-- clean: ['~']
+- clean: ["~"]
 
 - link:
-    ~/.dotfiles: ''
+    ~/.dotfiles: ""
     ~/.gitconfig: gitconfig
     ~/.gitconfig_local: gitconfig_local
     ~/.gitignore_global: gitignore_global
@@ -29,4 +29,4 @@
     ~/Library/Preferences/com.barebones.bbedit.plist: bbedit/com.barebones.bbedit.plist
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive, Installing submodules]
