@@ -32,6 +32,8 @@ if [ -d /Applications/BBEdit.app ]; then
 else
     alias edit='$HOME/Applications/BBEdit.app/Contents/Helpers/bbedit_tool'
 fi
+alias sim_reset="echo -ne 'xcode simulator reset'; osascript -e 'tell application \"iOS Simulator\" to quit'; osascript -e 'tell application \"Simulator\" to quit'; xcrun simctl erase all; echo ' [OK]';";
+alias dumpasm='otool -tvV'
 
 # Xcode 8
 if [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash" ]; then
