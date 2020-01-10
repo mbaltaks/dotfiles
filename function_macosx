@@ -51,5 +51,5 @@ show()
 
 bwana()
 {
-    open -a "/Users/Data/Applications/Bwana.app" man://$1
+    open -a "$HOME/Applications/Bwana.app" man://$1
 }
