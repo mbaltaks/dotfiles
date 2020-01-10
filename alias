@@ -30,7 +30,7 @@ alias screensaver="/System/Library/Frameworks/ScreenSaver.framework/Resources/Sc
 if [ -d /Applications/BBEdit.app ]; then
     alias edit='/Applications/BBEdit.app/Contents/Helpers/bbedit_tool'
 else
-    alias edit='/Users/Data/Applications/BBEdit.app/Contents/Helpers/bbedit_tool'
+    alias edit='$HOME/Applications/BBEdit.app/Contents/Helpers/bbedit_tool'
 fi
 
 # Xcode 8
