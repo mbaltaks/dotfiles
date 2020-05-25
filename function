@@ -1,6 +1,6 @@
 function strip_to_architecture()
 {
-find "${1:-.}" -type f -perm +111 -not -perm +7000 -not -name '*.*' -exec lipo {} -thin "${2:-`arch`}" -output {} \; -print 2>/dev/null
+    find "${1:-.}" -type f -perm +111 -not -perm +7000 -not -name '*.*' -exec lipo {} -thin "${2:-`arch`}" -output {} \; -print 2>/dev/null
 }
 
 calc ()
@@ -17,7 +17,7 @@ checksha256()
 	fi
 
 	filehash=`openssl sha256 "${1}" | /usr/bin/awk -F"=" '{ print $2 }'` ;
-	if [ $filehash == $2 ] ; then
+	if [[ $filehash -eq $2 ]] ; then
 		echo "** SHA256 matches **" ;
 	else
 		echo " ********** ERROR: SHA256 DOES NOT MATCH **********" ;
