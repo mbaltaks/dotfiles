@@ -53,3 +53,17 @@ bwana()
 {
     open -a "$HOME/Applications/Bwana.app" man://$1
 }
+
+function bci() {
+    readonly cask=${1:?"The cask name must be specified"}
+    brew update
+    brew install --cask $cask --no-quarantine
+    cd $MACBOOK_SETUP_DIR
+    rm ./Brewfile
+    brew bundle dump --all
+    git add .
+    git commit -m "Update Brewfile after installation of $cask"
+    git push origin master
+    cd -
+    return 1
+}

@@ -221,3 +221,16 @@ function venvconnect (){
         echo "Activate a virtualenv first"
     fi
 }
+
+ps1 () {
+    if [[ "$PS1" == '$ ' ]]
+    then
+        PS1="$OLDPS1"
+        RPROMPT="$OLD_RPROMPT"
+    else
+        export OLDPS1="$PS1"
+        OLD_RPROMPT="$RPROMPT"
+        PS1='$ '
+        RPROMPT=''
+    fi
+}

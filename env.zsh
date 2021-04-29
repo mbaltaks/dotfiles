@@ -2,6 +2,7 @@ export EDITOR=vi
 export PAGER=less
 #export PAGER=/opt/local/bin/most
 export GIT_PAGER='less -F -X'
+export REPORTTIME=3 # show the command run time if longer than 3 seconds
 
 # export PGDATA="${HOME}/Library/Application Support/Postgres/var-9.5"
 
