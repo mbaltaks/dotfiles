@@ -27,6 +27,9 @@
     ~/Library/Application Support/Code/User:
       path: vscode/User
       create: true
+    ~/Library/Application Support/VSCodium/User:
+      path: vscode/User
+      create: true
     ~/Library/Application Support/BBEdit: bbedit/BBEdit
     ~/Library/Preferences/com.barebones.bbedit.plist: bbedit/com.barebones.bbedit.plist
 

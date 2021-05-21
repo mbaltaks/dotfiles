@@ -3,7 +3,7 @@
 alias note='date >> ~/Documents/notes.txt; tee -a ~/Documents/notes.txt > /dev/null'
 alias psf='ps -auxww | grep \!:1 | grep -v grep'
 # alias l='ls -laFGeh'
-alias l='exa -bghHlSa'
+alias l='exa -bghHlSa --git'
 alias t='top -R -F -s 2'
 alias sha1='openssl dgst -sha1'
 # alias sqsh='/usr/local/sqsh/bin/sqsh'
@@ -34,6 +34,8 @@ else
 fi
 alias sim_reset="echo -ne 'xcode simulator reset'; osascript -e 'tell application \"iOS Simulator\" to quit'; osascript -e 'tell application \"Simulator\" to quit'; xcrun simctl erase all; echo ' [OK]';";
 alias dumpasm='otool -tvV'
+alias bcu="brew upgrade --cask --greedy"
+alias good_morning="openssl rand 500 | LC_ALL=C tr -dc '[:alnum:]\!@#$%^&*()_-~/{}[].,?' | head -c20; echo ''"
 
 # Xcode 8
 if [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash" ]; then
