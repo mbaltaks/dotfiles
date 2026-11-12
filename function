@@ -8,53 +8,37 @@ calc ()
 	echo "$@" | bc -l
 }
 
-checksha256()
+# Usage: _checkhash <openssl-dgst-algorithm> <label> <hash> <filepath>, in either order.
+# Whichever argument is an existing file is the file; the other is the expected hash.
+_checkhash()
 {
-	if [ $# -lt 2 ] ; then
-		echo "Usage: checksha256 filepath sha256-sum ..." ;
-		echo "       must specify at least one pair of file and checksum." ;
-		echo "Exiting." ;
+	local algorithm=$1 label=$2
+	shift 2
+	if [ $# -ne 2 ] ; then
+		echo "Usage: check${algorithm} hash filepath  (either order)" ;
+		return 2 ;
 	fi
 
-	filehash=`openssl sha256 "${1}" | /usr/bin/awk -F"=" '{ print $2 }'` ;
-	if [[ $filehash -eq $2 ]] ; then
-		echo "** SHA256 matches **" ;
+	local file expected filehash
+	if [ -f "${1}" ] ; then
+		file=$1 ; expected=$2
 	else
-		echo " ********** ERROR: SHA256 DOES NOT MATCH **********" ;
+		file=$2 ; expected=$1
+	fi
+
+	filehash=`/usr/bin/openssl dgst -${algorithm} -r "${file}" | /usr/bin/awk '{ print tolower($1) }'` ;
+	expected=`echo "${expected}" | /usr/bin/awk '{ print tolower($1) }'` ;
+	if [[ -n $filehash && $filehash == $expected ]] ; then
+		echo "** ${label} matches **" ;
+	else
+		echo " ********** ERROR: ${label} DOES NOT MATCH **********" ;
+		return 1 ;
 	fi
 }
 
-checksha1()
-{
-	if [ $# -lt 2 ] ; then
-		echo "Usage: checksha1 filepath sha1-sum ..." ;
-		echo "       must specify at least one pair of file and checksum." ;
-		echo "Exiting." ;
-	fi
-
-	filesha1=`/usr/bin/openssl sha1 "${1}" | /usr/bin/awk -F"=" '{ print $2 }'` ;
-	if [ $filesha1 == $2 ] ; then
-		echo "** SHA1 matches **" ;
-	else
-		echo " ********** ERROR: SHA1 DOES NOT MATCH **********" ;
-	fi
-}
-
-checkmd5()
-{
-	if [ $# -lt 2 ] ; then
-		echo "Usage: checkmd5 filepath sha1-sum ..." ;
-		echo "       must specify at least one pair of file and checksum." ;
-		echo "Exiting." ;
-	fi
-
-	filesha1=`/usr/bin/openssl md5 "${1}" | /usr/bin/awk -F"=" '{ print $2 }'` ;
-	if [ $filesha1 == $2 ] ; then
-		echo "** MD5 matches **" ;
-	else
-		echo " ********** ERROR: MD5 DOES NOT MATCH **********" ;
-	fi
-}
+checksha256() { _checkhash sha256 SHA256 "$@" ; }
+checksha1() { _checkhash sha1 SHA1 "$@" ; }
+checkmd5() { _checkhash md5 MD5 "$@" ; }
 
 # From http://luo.ma/geek/ssh-color-iterm
 function set_term_bgcolor
