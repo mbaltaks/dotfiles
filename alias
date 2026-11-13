@@ -3,7 +3,7 @@
 alias note='date >> ~/Documents/notes.txt; tee -a ~/Documents/notes.txt > /dev/null'
 alias psf='ps -auxww | grep \!:1 | grep -v grep'
 # alias l='ls -laFGeh'
-alias l='exa -bghHlSa --git'
+alias l='eza -bghHlSa --git'
 alias t='top -R -F -s 2'
 alias sha1='openssl dgst -sha1'
 # alias sqsh='/usr/local/sqsh/bin/sqsh'
@@ -15,7 +15,7 @@ alias sha1='openssl dgst -sha1'
 # alias join='python "/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py"'
 # alias lame='${HOME}/Library/iTunes/Scripts/iTunes-LAME.app/Contents/Resources/lame'
 # alias edit='bbedit'
-alias xclean='rm -r ${HOME}/Library/Developer/Xcode/DerivedData'
+alias xclean='rm -fr ${HOME}/Library/Developer/Xcode/DerivedData'
 alias tidyjson='python -mjson.tool' # | pygmentize -l javascript'
 # Quick way to rebuild the Launch Services database and get rid
 # of duplicates in the Open With submenu.
@@ -36,6 +36,8 @@ alias sim_reset="echo -ne 'xcode simulator reset'; osascript -e 'tell applicatio
 alias dumpasm='otool -tvV'
 alias bcu="brew upgrade --cask --greedy"
 alias good_morning="openssl rand 500 | LC_ALL=C tr -dc '[:alnum:]\!@#$%^&*()_-~/{}[].,?' | head -c20; echo ''"
+alias webserver="python3 -m http.server --cgi 8080"
+alias gitx="open -a GitX ."
 
 # Xcode 8
 if [ -x "/Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources/symbolicatecrash" ]; then

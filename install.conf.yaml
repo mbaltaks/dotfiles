@@ -12,15 +12,19 @@
     ~/.zprofile: zprofile
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
+    ~/.profile: profile
     ~/.vimrc: vimrc
     ~/.vim: vim/
     ~/.vim/autoload: vim-pathogen/autoload
     ~/.config/nvim: vim/
     ~/.config/nvim/init.vim: vimrc
+    ~/.config/starship.toml: starship.toml
     ~/.inputrc: inputrc
     ~/.editrc: editrc
     ~/.termcap: termcap
     ~/.atom: atom
+    ~/.tmux.conf: tmux.conf
+    ~/.screenrc: screenrc
     ~/.gdbinit: gdbinit
     ~/.lldbinit: lldbinit
     ~/.asdfrc: asdfrc
@@ -32,6 +36,7 @@
       create: true
     ~/Library/Application Support/BBEdit: bbedit/BBEdit
     ~/Library/Preferences/com.barebones.bbedit.plist: bbedit/com.barebones.bbedit.plist
+    ~/.gemrc: gemrc
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

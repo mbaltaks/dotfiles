@@ -1,4 +1,8 @@
+# git config remote.origin.prune true
+
 [alias]
+	who = "!sh -c 'git log -1 --pretty=\"format:%an <%ae>\" --author=\"$1\"' -"
+	distclean = "!sh -c 'git clean -dqxf'"
 	st = status
 	d = diff
 	ci = commit -v
@@ -6,21 +10,113 @@
 	co = checkout
 	cp = cherry-pick
 	b = branch
+	# l = log
+	ll = log -p
+	lt = log trunk..
+	llt = log -p trunk..
+	lm = log master..
+	llm = log -p master..
+	m = merge --no-ff
+	lol = "log --pretty=oneline --abbrev-commit --graph --decorate"
+	unstage = "reset HEAD"
+	noancestor = "!sh -c 'git symbolic-ref HEAD refs/heads/$1 && rm .git/index; git clean -fdx' -"
+	locate = "!sh -c 'git ls-files "\\*$1\\*"' -"
+	serve = "!git daemon --reuseaddr --verbose --base-path=. --export-all ./.git"
+	wsadd = "!sh -c 'git diff -- \"$@\" | git apply --cached --whitespace=fix;"
+	logk = log --graph --pretty=oneline --abbrev-commit --decorate
+	log-colour = log --graph --full-history --all --color --pretty=format:'%x1b[31m%h%x09%x1b[32m %C(white)- %d%x1b[0m%x20%s %Cgreen(%cr) %C(bold blue)<%an>%Creset'  --date=relative
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	# From http://codingkilledthecat.wordpress.com/2012/04/27/git-stash-pop-considered-harmful/
+	save = !sh -c 'export PREV=$(git symbolic-ref HEAD|cut -d/ -f3-) && git checkout -b "$1" && git commit -am "$1" && git checkout "$PREV"' -
+	l = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	recursiveupdate = submodule update --recursive --remote --init
+	opendiff = difftool --no-prompt --tool opendiff --dir-diff
 
 [core]
 	excludesfile = ~/.gitignore_global
-	pager = "less -eFiMR"
+	#pager = "less -RciqMSj5"
+	#pager = "less -eiMR"
+	#pager = most
+	# pager = "less -eFiMR"
+	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = vim
+	quotepath = false
+	trustctime = false
+	#autocrlf = input
+	#safecrlf = true
 
 [color]
 	branch = auto
 	diff = auto
 	interactive = auto
 	status = auto
-	ui = auto
+	ui = true
+
+[merge]
+	tool = p4custom
+	keepBackup = false
+
+[diff]
+	renames = true
+	tool = p4merge
+	compactionHeuristic = true
+
+[difftool]
+	prompt = false
 
 [diff "utf16"]
 	command = opendiff
+[diff "localizablestrings"]
+        textconv = "iconv -f utf-16 -t utf-8"
+        binary = false
+
+[branch]
+	#autosetupmerge = true
+
+[http]
+	maxRequests = 5
+
+[difftool "sourcetree"]
+	cmd = ${HOME}/Applications/SourceTree.app/Contents/Resources/araxiscompare-w.sh -2 \"$LOCAL\" \"$REMOTE\"
+	path =
+
+[difftool "araxis"]
+	path = ${HOME}/Applications/Araxis Merge.app/Contents/Utilities/compare
+
+[difftool "meld"]
+	trustExitCode = true
+	cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "sourcetree"]
+	cmd = ${HOME}/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+	keepBackup = false
+
+[mergetool "p4custom"]
+    cmd = ${HOME}/Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$BASE" "$PWD/$REMOTE" "$PWD/$LOCAL" "$PWD/$MERGED"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
+
+[mergetool "araxis"]
+    path = ${HOME}/Applications/Araxis Merge.app/Contents/Utilities/compare
+
+[push]
+	#default = upstream
+	default = simple
+	recurseSubmodules = check
+[branch]
+	autosetuprebase = always
+[pull]
+	ff = only
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
 
 # Allow local customizations in the .gitconfig_local file
 [include]
@@ -28,3 +124,32 @@
 
 [credential]
 	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+# [pager]
+# 	log = diff-highlight | less
+# 	show = diff-highlight | less
+# 	diff = diff-highlight | less
+[interactive]
+	diffFilter = diff-highlight
+
+[merge "mergepbx"]
+	name = Xcode project files merge tool
+	driver = mergepbx %O %A %B
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[fetch]
+	prune = false

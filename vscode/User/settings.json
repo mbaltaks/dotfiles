@@ -1,12 +1,12 @@
 {
-    "editor.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "Hasklig, Source Code Pro, Monoid, Fira Code, Menlo, Monaco, 'Courier New', monospace",
     "editor.scrollBeyondLastLine": false,
     "editor.scrollBeyondLastColumn": 3,
     "editor.wordWrap": "on",
     "editor.minimap.enabled": false,
     "editor.formatOnSave": true,
     "editor.renderControlCharacters": true,
-    "editor.renderWhitespace": "none",
+    "editor.renderWhitespace": "all",
     "workbench.colorTheme": "Solarized Light",
     "workbench.statusBar.feedback.visible": false,
     "files.insertFinalNewline": true,
@@ -20,5 +20,18 @@
     "vim.enableNeovim": false,
     "vim.whichwrap": "[,]",
     "python.venvPath": "/Users/mick/.local/share/virtualenvs",
-    "breadcrumbs.enabled": true
+    "breadcrumbs.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "extensions.autoUpdate": "on",
+    "editor.detectIndentation": false,
+    "files.associations": {
+        "*.h": "objective-cpp"
+    },
+    "editor.fontLigatures": true,
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "mssql.connections": [],
+    "editor.guides.indentation": false
 }

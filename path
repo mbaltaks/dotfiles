@@ -3,55 +3,64 @@
 # Default PATH for some older Mac OS X version
 #PATH="${PATH}:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11R6/bin"
 
-# Append new folder to variable (if it exists)
-append()
+# Prepend new folder to variable (if it exists)
+path_prepend()
 {
     [ -d "$1" ] && NEWPATH="${NEWPATH}:$1"
 }
 
 # User specific folders
-append "$HOME/bin"
-append "$HOME/.dotfiles/bin"
+path_prepend "$HOME/bin"
+path_prepend "$HOME/.dotfiles/bin"
 
 # Python / Haskell stack
-append "${HOME}/.local/bin"
+#path_prepend "$(pyenv root)/shims"
+path_prepend "${HOME}/.local/bin"
 
-# Machine local folders
-append "/usr/local/bin"
-append "/usr/local/sbin"
+# Machine local folders, including Homebrew
+path_prepend "/usr/local/bin"
+path_prepend "/usr/local/sbin"
 
 # MacPorts
-append "/opt/local/bin"
-append "/opt/local/sbin"
-append "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin"
-append "/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin"
+path_prepend "/opt/local/bin"
+path_prepend "/opt/local/sbin"
+path_prepend "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin"
+path_prepend "/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin"
 
 # Xcode tools
-append "/Applications/Xcode.app/Contents/Developer/Tools"
+path_prepend "/Applications/Xcode.app/Contents/Developer/Tools"
+
+# Kotlin
+path_prepend "${HOME}/Applications/Android Studio.app/Contents/plugins/Kotlin/kotlinc/bin"
 
 # Heroku
-append "/usr/local/heroku/bin"
+path_prepend "/usr/local/heroku/bin"
 
 # Git
-append "/opt/local/share/git/contrib/diff-highlight"
+path_prepend "/opt/local/share/git/contrib/diff-highlight"
 
 # Android development
-append "$HOME/Applications/Android Studio.app/sdk/tools"
-append "$HOME/Applications/Android Studio.app/sdk/platform-tools"
+path_prepend "/Users/Data/Android-SDKs/sdk/tools"
+path_prepend "/Users/Data/Android-SDKs/sdk/platform-tools"
+path_prepend "/Users/Data/Android-SDKs/sdk/tools/bin"
+path_prepend "/Users/Data/Android-SDKs/sdk/emulator"
 
 # WebKit JavaScript interpreter
-append "/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources"
-#append "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin"
+path_prepend "/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources"
+#path_prepend "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin"
 
 # Fink
 #PATH="${PATH}:/sw/bin:/sw/sbin"
 #PATH=${PATH}:/usr/local/*/bin
 
 # Postgres.app
-append "/Applications/Postgres.app/Contents/Versions/latest/bin"
+path_prepend "/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 # Visual Studio Code
-append "$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+path_prepend "$HOME/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Perforce
+path_prepend "$HOME/Applications/p4merge.app/Contents/MacOS"
 
 PATH="${NEWPATH}:${PATH}"
 export PATH
@@ -68,4 +77,4 @@ MANPATH="${NEWMANPATH}:${MANPATH}"
 export MANPATH
 
 # clean up
-unset append
+unset path_prepend

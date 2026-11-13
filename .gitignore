@@ -1,5 +1,8 @@
 vim/autoload
 private
 vscode/User/workspaceStorage/
+vscode/User/History
 vscode/User/globalStorage/
 *_local
+bin/IBAnalyzer.app/
+bin/gitx*

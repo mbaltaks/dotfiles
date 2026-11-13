@@ -30,7 +30,7 @@
 # MacPorts clean: sudo port clean --all installed && sudo port uninstall inactive leaves
 # Virtualenv activate: source venv/bin/activate
 # sudo bin/rbackup macbookpro > ~/Library/Logs/rbackup/"backup-`date`.log"
-# Homebrew update: brew update && brew upgrade && brew cleanup
+# Homebrew update: brew update && brew upgrade && brew cleanup && brew autoremove
 # softwareupdate --list --include-config-data
 # xcrun simctl delete unavailable
 # asdf plugin-update --all
@@ -58,4 +58,36 @@ done
 # https://asdf-vm.com/ manages packages for all languages
 # replaces nvm, rvm/chruby/rbenv, etc
 #source $(brew --prefix asdf)/asdf.sh
-source /usr/local/opt/asdf/asdf.sh
+#source /usr/local/opt/asdf/asdf.sh
+#. /opt/local/share/asdf/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# append completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+
+
+source "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br"
+
+if [[ -r "/opt/local/share/mcfly/mcfly.zsh" ]]; then
+	source "/opt/local/share/mcfly/mcfly.zsh"
+fi
+
+source /opt/local/share/fzf/shell/key-bindings.zsh
+source /opt/local/share/fzf/shell/completion.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(zoxide init zsh)"
+#eval "$(starship init zsh)"
+
+# initialise completions with ZSH's compinit
+#autoload -Uz compinit && compinit
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:${HOME}/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# opencode
+export PATH="${HOME}/.opencode/bin:$PATH"
+
+# Hermes Agent command
+case ":$PATH:" in *":$HOME/.local/bin:"*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac
