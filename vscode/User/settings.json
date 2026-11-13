@@ -7,13 +7,11 @@
     "editor.formatOnSave": true,
     "editor.renderControlCharacters": true,
     "editor.renderWhitespace": "all",
-    "workbench.colorTheme": "Solarized Light",
     "workbench.statusBar.feedback.visible": false,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "explorer.confirmDelete": false,
-    "window.zoomLevel": 0,
     "search.useIgnoreFiles": true,
     "debug.node.autoAttach": "off",
     "vim.neovimPath": "/usr/local/bin/nvim",
@@ -33,5 +31,20 @@
         "*.ipynb": "jupyter.notebook.ipynb"
     },
     "mssql.connections": [],
-    "editor.guides.indentation": false
+    "editor.guides.indentation": false,
+    "editor.fontSize": 13,
+    "sourcekit-lsp.serverPath": "/usr/bin/xcrun sourcekit-lsp",
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "redhat.telemetry.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "workbench.colorTheme": "Solarized Light",
+    "[objective-cpp]": {
+        "editor.colorDecorators": true
+    },
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "lldb.launch.expressions": "native",
+    "makefile.configureOnOpen": true
 }

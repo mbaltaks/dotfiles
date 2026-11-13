@@ -4,8 +4,10 @@ vim/.netrwhist
 vim/init.vim
 private
 vscode/User/workspaceStorage/
-vscode/User/History
+vscode/User/History/
 vscode/User/globalStorage/
+vscode/User/mcp.json
+vscode/User/chatLanguageModels.json
 *_local
 bin/IBAnalyzer.app/
 bin/gitx*
