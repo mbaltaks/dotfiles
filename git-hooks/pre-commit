@@ -1,0 +1,44 @@
+#!/bin/bash
+# Refuse an agent commit in a main checkout.
+#
+# A main checkout is shared: another session may be live in it, and two writers
+# appending to the same file destroy each other's work silently rather than
+# conflicting. Agent work belongs in a linked worktree, whose GIT_DIR is under
+# .git/worktrees/ -- that is what this tells apart.
+#
+# AI_AGENT is set in the agent's shell and inherited by hooks. A human at a
+# terminal doesn't have it, so this is invisible to you.
+#
+# Rebases are exempt: a rebase rewrites existing commits, for example to sign
+# them before a push, which is not new work.
+#
+# Symlinked into each repo from dotfiles/git-hooks/. Linked worktrees share the
+# main checkout's hooks directory, so one symlink covers the whole repo.
+
+[ -z "$AI_AGENT" ] && exit 0
+
+git_dir=$(git rev-parse --absolute-git-dir)
+
+case "$git_dir" in
+*/worktrees/*) exit 0 ;;
+esac
+
+if [ -d "$git_dir/rebase-merge" ] || [ -d "$git_dir/rebase-apply" ]; then
+	exit 0
+fi
+
+repo=$(git rev-parse --show-toplevel)
+
+cat >&2 <<EOF
+pre-commit: refusing an agent commit in the main checkout
+
+  $repo
+
+Agent work goes in a linked worktree:
+
+  git worktree add "$repo/.claude/worktrees/<name>" <branch>
+
+If this one is deliberate, ask the human -- they can run it, or you can use
+git commit --no-verify once they have said so.
+EOF
+exit 1
