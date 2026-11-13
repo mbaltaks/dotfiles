@@ -11,3 +11,9 @@ vscode/User/chatLanguageModels.json
 *_local
 bin/IBAnalyzer.app/
 bin/gitx*
+
+# Written by BBEdit, not config
+bbedit/BBEdit/.SupportFolderMigration.txt
+bbedit/BBEdit/Read Me.txt
+bbedit/BBEdit/Notes.bbnotebookd/
+bbedit/BBEdit/Setup/BBEdit Preferences Backup.plist

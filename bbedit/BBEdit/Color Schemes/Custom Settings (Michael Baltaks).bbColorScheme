@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ColorSchemeFormatVersion</key>
+	<integer>4</integer>
+	<key>com.barebones.DocumentType</key>
+	<string>ColorScheme</string>
+	<key>com.barebones.bblm.Pyth.decorator</key>
+	<string>rgba(0.200, 0.400, 0.600, 1.000)</string>
+	<key>com.barebones.bblm.code</key>
+	<string>rgba(0.015930,0.126528,0.159701,1.0)</string>
+	<key>com.barebones.bblm.comment</key>
+	<string>rgba(0.440574,0.509636,0.516854,1.0)</string>
+	<key>com.barebones.bblm.html.anchor</key>
+	<string>rgba(0.741756,0.213260,0.073533,1.0)</string>
+	<key>com.barebones.bblm.html.attribute-name</key>
+	<string>rgba(0.127550,0.462654,0.782315,1.0)</string>
+	<key>com.barebones.bblm.html.attribute-value</key>
+	<string>rgba(0.146792,0.570825,0.525017,1.0)</string>
+	<key>com.barebones.bblm.html.image</key>
+	<string>rgba(0.777386,0.108019,0.435172,1.0)</string>
+	<key>com.barebones.bblm.indexed-symbol</key>
+	<string>rgba(0.6,0.0,0.4,1.0)</string>
+	<key>com.barebones.bblm.keyword</key>
+	<string>rgba(0.127550,0.462654,0.782315,1.0)</string>
+	<key>com.barebones.bblm.number</key>
+	<string>rgba(0.127550,0.462654,0.782315,1.0)</string>
+	<key>com.barebones.bblm.predefined-symbol</key>
+	<string>rgba(0.741756,0.213260,0.073533,1.0)</string>
+	<key>com.barebones.bblm.sgml-tag</key>
+	<string>rgba(0.440574,0.509636,0.516854,1.0)</string>
+	<key>com.barebones.bblm.string</key>
+	<string>rgba(0.146792,0.570825,0.525017,1.0)</string>
+	<key>com.barebones.bblm.variable</key>
+	<string>rgba(0.6,0.0,0.4,1.0)</string>
+	<key>com.barebones.bblm.xml-pi</key>
+	<string>rgba(0.647471,0.467521,0.023484,1.0)</string>
+</dict>
+</plist>

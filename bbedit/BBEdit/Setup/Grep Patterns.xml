@@ -374,6 +374,36 @@
 			<key>UniqueID</key>
 			<string>0712FED0-0FA2-4EFA-ADE7-6DB2CAFD6AC8</string>
 		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\2</string>
+			<key>SearchPattern</key>
+			<string>(.*")(http[s]*://[a-zA-Z0-9./?=&amp;#-_]+)(".*$)</string>
+			<key>Title</key>
+			<string>URL from Java</string>
+			<key>UniqueID</key>
+			<string>3891372F-11D1-4652-ACE6-B8B40C4A879E</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>case \1</string>
+			<key>SearchPattern</key>
+			<string>^.+let (.*):.*$</string>
+			<key>Title</key>
+			<string>swift struct fields to enum</string>
+			<key>UniqueID</key>
+			<string>5CCE4509-F044-4D84-9816-B56679C36983</string>
+		</dict>
+		<dict>
+			<key>ReplacePattern</key>
+			<string>\1</string>
+			<key>SearchPattern</key>
+			<string>^\+(.*)$</string>
+			<key>Title</key>
+			<string>remove leading +</string>
+			<key>UniqueID</key>
+			<string>C7B4F93F-2633-4D51-9506-BDA8E148B0BC</string>
+		</dict>
 	</array>
 </dict>
 </plist>

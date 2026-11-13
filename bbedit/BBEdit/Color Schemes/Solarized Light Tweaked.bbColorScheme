@@ -5,7 +5,7 @@
 	<key>BackgroundColor</key>
 	<string>rgba(0.989441,0.957946,0.864057,1.0)</string>
 	<key>DifferenceHighlightColor</key>
-	<string>hsla(0.12, 0.13, 1.00, 1.00)</string>
+	<string>hsla(0.132, 0.196, 0.873, 1.000)</string>
 	<key>HighlightInsertionPoint</key>
 	<true/>
 	<key>InsertionPointLineHighlightColor</key>
