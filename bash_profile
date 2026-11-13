@@ -13,3 +13,4 @@ source "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br"
 export PATH="$PATH:${HOME}/.lmstudio/bin"
 # End of LM Studio CLI section
 
+[[ :$PATH: == *:$HOME/bin:* ]] || PATH=$HOME/bin:$PATH

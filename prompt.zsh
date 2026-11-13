@@ -1,4 +1,5 @@
-export PROMPT='%~$(git-prompt-info)$ '
+# Prompt char picked from https://github.com/sindresorhus/pure#why
+export PROMPT='%~$(git-prompt-info)❯ '
 
 
 # function prompt_custom_precmd {

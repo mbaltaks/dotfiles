@@ -102,6 +102,7 @@ if [ -x "${xcrun}" ]; then
 fi
 
 #export JAVA_HOME=`/usr/libexec/java_home`
+export JAVA_HOME=/usr
 
 export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
 export HOMEBREW_NO_ANALYTICS=1

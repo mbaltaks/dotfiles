@@ -35,6 +35,9 @@
 # xcrun simctl delete unavailable
 # asdf plugin-update --all
 
+[[ -d /opt/brew/share/zsh/site-functions/ ]] && fpath+=(/opt/brew/share/zsh/site-functions/)
+[[ -d /opt/homebrew/share/zsh/site-functions ]] && fpath+=(/opt/homebrew/share/zsh/site-functions)
+
 # for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.zsh,alias,completion.zsh,prompt.zsh,custom,private}; do
 for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.zsh,alias,completion.zsh,prompt.zsh,custom,private}; do
     [ -f "$DOTFILE" ] && source "$DOTFILE"
@@ -78,8 +81,15 @@ source /opt/local/share/fzf/shell/completion.zsh
 eval "$(zoxide init zsh)"
 #eval "$(starship init zsh)"
 
+#eval "$(nodenv init -)"
+#eval "$(arch -x86_64 nodenv init -)"
+
+#zprof
+
 # initialise completions with ZSH's compinit
-#autoload -Uz compinit && compinit
+autoload -U compinit && compinit -i
+
+export PATH="$PATH:$(npm config get prefix)/bin"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:${HOME}/.lmstudio/bin"
