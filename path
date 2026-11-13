@@ -27,6 +27,10 @@ path_prepend "/opt/local/sbin"
 path_prepend "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin"
 path_prepend "/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin"
 
+# Homebrew
+path_prepend "/opt/homebrew/bin"
+path_prepend "/opt/homebrew/sbin"
+
 # Xcode tools
 path_prepend "/Applications/Xcode.app/Contents/Developer/Tools"
 
@@ -44,6 +48,8 @@ path_prepend "/Users/Data/Android-SDKs/sdk/tools"
 path_prepend "/Users/Data/Android-SDKs/sdk/platform-tools"
 path_prepend "/Users/Data/Android-SDKs/sdk/tools/bin"
 path_prepend "/Users/Data/Android-SDKs/sdk/emulator"
+path_prepend "$HOME/Applications/Android Studio.app/sdk/tools"
+path_prepend "$HOME/Applications/Android Studio.app/sdk/platform-tools"
 
 # WebKit JavaScript interpreter
 path_prepend "/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources"
