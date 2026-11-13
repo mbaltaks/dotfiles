@@ -1,4 +1,7 @@
 vim/autoload
+vim/.netrwhist
+# Linked by install
+vim/init.vim
 private
 vscode/User/workspaceStorage/
 vscode/User/History
