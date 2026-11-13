@@ -1,0 +1,43 @@
+#!/bin/sh
+# claude_config_sync — commit hand-authored ~/.claude config on a timer.
+#
+# Driven by ~/Library/LaunchAgents/com.baltaks.claudeconfigsync.plist. The repo
+# has no remote, so there is nothing to pull or
+# push; this only keeps a local revision history of config, rules, hooks, skills
+# and per-project memory as they change during Claude Code sessions.
+#
+# Usage: claude_config_sync          Commit any changes in ~/.claude, then exit.
+#        claude_config_sync --help   Print this text.
+
+case "${1:-}" in
+  -h|--help)
+    awk 'NR == 1 { next } /^#/ { sub(/^# ?/, ""); print; next } { exit }' "$0"
+    exit 0
+    ;;
+esac
+
+repo="$HOME/.claude"
+cd "$repo" || exit 0
+
+# Never auto-commit into the middle of a hand-run rebase, merge or cherry-pick.
+git_dir=$(git rev-parse --git-dir 2>/dev/null) || exit 0
+for marker in rebase-merge rebase-apply MERGE_HEAD CHERRY_PICK_HEAD BISECT_LOG; do
+  [ -e "$git_dir/$marker" ] && exit 0
+done
+
+# .gitignore here is a whitelist, so -A only ever picks up hand-authored config,
+# never the ~15 GB of caches, transcripts and vendored plugins alongside it.
+# A concurrent git holding index.lock just means we try again next interval.
+git add -A 2>/dev/null || exit 0
+
+# Nothing staged is the common case; without this the commit below would fail
+# every interval and fill the log.
+git diff --cached --quiet && exit 0
+
+files=$(git diff --cached --name-only)
+count=$(printf '%s\n' "$files" | wc -l | tr -d ' ')
+
+# Unsigned deliberately: this runs unattended every few minutes, and signing
+# would pop a Touch ID prompt with nobody expecting one.
+printf 'Auto commit: %s file(s)\n\n%s\n' "$count" "$files" |
+  git -c commit.gpgsign=false commit --quiet -F -

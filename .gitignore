@@ -12,6 +12,9 @@ vscode/User/chatLanguageModels.json
 bin/IBAnalyzer.app/
 bin/gitx*
 
+# Scratch input for xct_compare
+bin/xct_compare_input
+
 # Written by BBEdit, not config
 bbedit/BBEdit/.SupportFolderMigration.txt
 bbedit/BBEdit/Read Me.txt

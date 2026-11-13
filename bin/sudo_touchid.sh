@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
+# Let Touch ID approve sudo, by adding pam_tid.so to /etc/pam.d/sudo. It needs sudo and gsed.
+#
+# Usage: sudo_touchid.sh          Add the line if it is missing.
+#        sudo_touchid.sh --help   Print this text.
+
+case "${1:-}" in
+  -h|--help)
+    awk 'NR == 1 { next } /^#/ { sub(/^# ?/, ""); print; next } { exit }' "$0"
+    exit 0
+    ;;
+esac
+
 set -eu
 if grep -q pam_tid.so /etc/pam.d/sudo; then
     echo "👌 Touch ID sudo already set up"

@@ -1,0 +1,28 @@
+#!/bin/sh
+# Compare the two sides of an XCTAssertEqual failure in opendiff.
+# Save the failure message in xct_compare_input, next to this script.
+# xct_compare_split writes the two sides to /tmp/xct_compare_split_1 and _2.
+#
+# Usage: xct_compare          Split the saved message, then open both sides in opendiff.
+#        xct_compare --help   Print this text.
+
+case "${1:-}" in
+  -h|--help)
+    awk 'NR == 1 { next } /^#/ { sub(/^# ?/, ""); print; next } { exit }' "$0"
+    exit 0
+    ;;
+esac
+
+# Don't allow using unset vars (-u)
+set -o nounset
+# Exit on error (-e)
+set -o errexit
+
+# Get absolute paths
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do SOURCE="$(readlink "$SOURCE")"; done
+SCRIPT_PATH="$( cd -P "$(dirname "$SOURCE" )" && pwd )"
+REPO_PATH="$( cd -P "$SCRIPT_PATH/.." && pwd )"
+
+xct_compare_split
+opendiff "/tmp/xct_compare_split_1" "/tmp/xct_compare_split_2"

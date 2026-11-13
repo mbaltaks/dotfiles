@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+"""Split an XCTAssertEqual failure message into its two sides, one file for each.
+
+Save the failure message in xct_compare_input, next to this script.
+The script writes the sides to /tmp/xct_compare_split_1 and /tmp/xct_compare_split_2.
+
+Usage: xct_compare_split          Split the saved message.
+       xct_compare_split --help   Print this text.
+"""
+
+import sys
+
+if sys.argv[1:2] in (['-h'], ['--help']):
+    print(__doc__.strip())
+    sys.exit(0)
+
+import os
+
+current_folder = os.path.dirname(os.path.realpath(__file__))
+# print(current_folder)
+input_file_path = os.path.join(current_folder, 'xct_compare_input')
+split_file_path = os.path.join('/tmp/', 'xct_compare_split_')
+
+with open(input_file_path, 'r') as input_file:
+    full_file = input_file.read()
+    full_parts = full_file.split('XCTAssertEqual failed: ')
+    two_parts = full_parts[1]
+    parts = two_parts.split(' is not equal to ')
+    # print(parts)
+
+    count = 0
+    for part in parts:
+        count += 1
+        diffable = part.replace(',', '\n').replace(';', '\n').replace('(', '\n(').replace('[', '\n[')
+        # print(count)
+        # print(diffable)
+        if diffable[-1] != '\n':
+            diffable += '\n'
+
+        filename = split_file_path + str(count)
+        with open(filename, 'w') as file:
+            file.write(diffable)
