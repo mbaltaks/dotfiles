@@ -2,7 +2,6 @@ vim/autoload
 vim/.netrwhist
 # Linked by install
 vim/init.vim
-private
 vscode/User/workspaceStorage/
 vscode/User/History/
 vscode/User/globalStorage/
@@ -11,6 +10,7 @@ vscode/User/chatLanguageModels.json
 *_local
 bin/IBAnalyzer.app/
 bin/gitx*
+private
 
 # Built by install from src/
 bin/fix_clipboard

@@ -21,7 +21,7 @@
 # xcrun simctl delete unavailable
 # asdf plugin-update --all
 
-for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.bash,alias,completion.bash,prompt.bash,custom,private}; do
+for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.bash,alias,completion.bash,prompt.bash,custom} ~/.shellrc_overlay; do
     [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
 

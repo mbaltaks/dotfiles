@@ -122,6 +122,9 @@
 # Allow local customizations in the .gitconfig_local file
 [include]
 	path = ~/.gitconfig_local
+# Settings from an overlay repo, where one is installed
+[include]
+	path = ~/.gitconfig_overlay
 
 [credential]
 	helper = osxkeychain
