@@ -10,6 +10,7 @@
 	co = checkout
 	cp = cherry-pick
 	b = branch
+	latest = !git for-each-ref --count=20 --sort=-committerdate refs/heads --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'
 	# l = log
 	ll = log -p
 	lt = log trunk..
@@ -72,6 +73,7 @@
 
 [branch]
 	#autosetupmerge = true
+	sort = committerdate
 
 [http]
 	maxRequests = 5
@@ -105,10 +107,9 @@
 	#default = upstream
 	default = simple
 	recurseSubmodules = check
-[branch]
-	autosetuprebase = always
 [pull]
 	ff = only
+	rebase = true
 [filter "media"]
 	required = true
 	clean = git media clean %f
