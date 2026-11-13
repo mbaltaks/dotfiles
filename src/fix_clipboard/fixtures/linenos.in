@@ -1,0 +1,4 @@
+     1	import Foundation
+     2	
+     3	let x = 1
+     4	print(x)

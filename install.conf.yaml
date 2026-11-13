@@ -40,3 +40,5 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [make -C src/fix_clipboard test, Building and testing fix_clipboard]
+    - [ln -sfn fix_clipboard bin/fcb, Linking fcb to fix_clipboard]

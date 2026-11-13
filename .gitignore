@@ -12,6 +12,10 @@ vscode/User/chatLanguageModels.json
 bin/IBAnalyzer.app/
 bin/gitx*
 
+# Built by install from src/
+bin/fix_clipboard
+bin/fcb
+
 # Scratch input for xct_compare
 bin/xct_compare_input
 

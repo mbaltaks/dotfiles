@@ -1,0 +1,7 @@
+Some text before the code.
+
+```swift
+let a = 1
+    let b = 2
+```
+After the code.

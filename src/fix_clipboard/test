@@ -1,0 +1,14 @@
+#!/bin/sh
+# Each fixtures/NAME.in through the binary must match fixtures/NAME.out.
+# The .out files came from the Python clipclean 0.2.0 this tool replaces.
+bin=${1:?usage: test <binary>}
+status=0
+for input in "$(dirname "$0")"/fixtures/*.in; do
+    expected=${input%.in}.out
+    if ! "$bin" - < "$input" | diff -u "$expected" - ; then
+        echo "FAIL $(basename "$input")"
+        status=1
+    fi
+done
+[ $status -eq 0 ] && echo "PASS"
+exit $status
