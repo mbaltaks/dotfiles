@@ -21,8 +21,11 @@
 # xcrun simctl delete unavailable
 # asdf plugin-update --all
 
+# Source a file when it exists. zshenv has the same function for zsh.
+source_if_exists() { [ -f "$1" ] || return 0; . "$1"; }
+
 for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.bash,alias,completion.bash,prompt.bash,custom} ~/.shellrc_overlay; do
-    [ -f "$DOTFILE" ] && source "$DOTFILE"
+    source_if_exists "$DOTFILE"
 done
 
 # Include fink config
@@ -31,9 +34,7 @@ done
 
 if [ -d /opt/local/etc/profile.d ]; then
   for i in /opt/local/etc/profile.d/*.sh; do
-    if [ -r $i ]; then
-      . $i
-    fi
+    source_if_exists "$i"
   done
   unset i
 fi
@@ -46,20 +47,18 @@ fi
 #source /usr/local/opt/chruby/share/chruby/auto.sh
 
 # asdf, for managing language version installs
-[ -f /opt/brew/opt/asdf/asdf.sh ] && source /opt/brew/opt/asdf/asdf.sh
-[ -f /opt/homebrew/opt/asdf/asdf.sh ] && source /opt/homebrew/opt/asdf/asdf.sh
-[ -f /usr/local/opt/asdf/asdf.sh ] && source /usr/local/opt/asdf/asdf.sh
-[ -f /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash ] && source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+source_if_exists /opt/brew/opt/asdf/asdf.sh
+source_if_exists /opt/homebrew/opt/asdf/asdf.sh
+source_if_exists /usr/local/opt/asdf/asdf.sh
+source_if_exists /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 
 # autoenv
 # source /usr/local/opt/autoenv/activate.sh
 
-if [ -f ~/.bashrc_local ]; then
-    source ~/.bashrc_local
-fi
+source_if_exists ~/.bashrc_local
 
 # added by travis gem
-[ -f "${HOME}/.travis/travis.sh" ] && source "${HOME}/.travis/travis.sh"
+source_if_exists "${HOME}/.travis/travis.sh"
 
 # for python pyenv
 #eval "$(pyenv init -)"
@@ -67,9 +66,9 @@ fi
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 
-source "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br"
+source_if_exists "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source_if_exists ~/.fzf.bash
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:${HOME}/.lmstudio/bin"

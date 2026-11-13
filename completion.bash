@@ -2,22 +2,12 @@
 shopt -s no_empty_cmd_completion
 
 # MacPorts Bash shell command completion
-if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-  . /opt/local/etc/profile.d/bash_completion.sh
-fi
-if [ -f /opt/local/share/bash-completion/completions/git ]; then
-  source /opt/local/share/bash-completion/completions/git
-fi
-if [ -f /usr/share/git-core/git-completion.bash ]; then
-  source /usr/share/git-core/git-completion.bash
-fi
-if [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash ]; then
-  source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
-fi
+source_if_exists /opt/local/etc/profile.d/bash_completion.sh
+source_if_exists /opt/local/share/bash-completion/completions/git
+source_if_exists /usr/share/git-core/git-completion.bash
+source_if_exists /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
 
 # For Debian
-if [ -f /etc/bash_completion.d/git ]; then
-  source /etc/bash_completion.d/git
-fi
+source_if_exists /etc/bash_completion.d/git
 
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+source_if_exists /usr/local/opt/nvm/etc/bash_completion  # This loads nvm bash_completion

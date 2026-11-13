@@ -64,9 +64,7 @@ function ssh-disabled
     set_term_bgcolor 255 255 255
 }
 
-if [ -f ~/bin/rmdir.func ]; then
-  . ~/bin/rmdir.func
-fi
+source_if_exists ~/bin/rmdir.func
 
 
 # Extract many types of compress files

@@ -40,7 +40,7 @@
 
 # for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.zsh,alias,completion.zsh,prompt.zsh,custom,private}; do
 for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.zsh,alias,completion.zsh,prompt.zsh,custom} ~/.shellrc_overlay; do
-    [ -f "$DOTFILE" ] && source "$DOTFILE"
+    source_if_exists "$DOTFILE"
 done
 
 # if [ -d /opt/local/etc/profile.d ]; then
@@ -68,14 +68,12 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 
 
-source "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br"
+source_if_exists "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br"
 
-if [[ -r "/opt/local/share/mcfly/mcfly.zsh" ]]; then
-	source "/opt/local/share/mcfly/mcfly.zsh"
-fi
+source_if_exists "/opt/local/share/mcfly/mcfly.zsh"
 
-source /opt/local/share/fzf/shell/key-bindings.zsh
-source /opt/local/share/fzf/shell/completion.zsh
+source_if_exists /opt/local/share/fzf/shell/key-bindings.zsh
+source_if_exists /opt/local/share/fzf/shell/completion.zsh
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(zoxide init zsh)"

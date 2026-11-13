@@ -79,4 +79,4 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Hermes Agent command
 case ":$PATH:" in *":$HOME/.local/bin:"*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac
 # Settings from an overlay repo, where one is installed
-[[ -f ~/.zprofile_overlay ]] && source ~/.zprofile_overlay
+source_if_exists ~/.zprofile_overlay

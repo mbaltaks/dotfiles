@@ -7,7 +7,7 @@ if [ -e "${HOME}/.nix-profile/etc/profile.d/nix.sh" ]; then . "${HOME}/.nix-prof
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-source "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br"
+[ -f "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br" ] && source "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:${HOME}/.lmstudio/bin"

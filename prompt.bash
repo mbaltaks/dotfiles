@@ -5,15 +5,9 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 #export GIT_PS1_DESCRIBE_STYLE='contains'
 #export GIT_PS1_SHOWUPSTREAM='auto'
 
-if [ -f /opt/local/share/git/git-prompt.sh ]; then
-    source /opt/local/share/git/git-prompt.sh
-fi
-if [ -f /usr/share/git-core/git-prompt.sh ]; then
-    source /usr/share/git-core/git-prompt.sh
-fi
-if [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh ]; then
-    source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
-fi
+source_if_exists /opt/local/share/git/git-prompt.sh
+source_if_exists /usr/share/git-core/git-prompt.sh
+source_if_exists /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
 
 GIT_PS1_SHOWCOLORHINTS=true
 
