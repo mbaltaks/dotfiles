@@ -42,6 +42,7 @@ path_prepend "/usr/local/heroku/bin"
 
 # Git
 path_prepend "/opt/local/share/git/contrib/diff-highlight"
+path_prepend "/opt/homebrew/share/git-core/contrib/diff-highlight"
 
 # Android development
 path_prepend "/Users/Data/Android-SDKs/sdk/tools"
