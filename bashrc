@@ -24,7 +24,7 @@
 # Source a file when it exists. zshenv has the same function for zsh.
 source_if_exists() { [ -f "$1" ] || return 0; . "$1"; }
 
-for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.bash,alias,completion.bash,prompt.bash,custom} ~/.shellrc_overlay; do
+for DOTFILE in ~/.dotfiles/{function,function_macosx,path,env.bash,alias,completion.bash,prompt.bash,custom,secrets} ~/.shellrc_overlay; do
     source_if_exists "$DOTFILE"
 done
 

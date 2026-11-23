@@ -10,7 +10,7 @@ vscode/User/chatLanguageModels.json
 *_local
 bin/IBAnalyzer.app/
 bin/gitx*
-private
+secrets
 
 # Built by install from src/
 bin/fix_clipboard
