@@ -11,19 +11,27 @@
     ~/.zprofile: zprofile
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
-    ~/.profile: profile
+    ~/.profile:
+      path: profile
+      if: "[ -f profile ]"
     ~/.vimrc: vimrc
     ~/.vim: vim/
     ~/.vim/autoload: vim-pathogen/autoload
     ~/.config/nvim: vim/
     ~/.config/nvim/init.vim: vimrc
-    ~/.config/starship.toml: starship.toml
+    ~/.config/starship.toml:
+      path: starship.toml
+      if: "[ -f starship.toml ]"
     ~/.inputrc: inputrc
     ~/.editrc: editrc
     ~/.termcap: termcap
     ~/.atom: atom
-    ~/.tmux.conf: tmux.conf
-    ~/.screenrc: screenrc
+    ~/.tmux.conf:
+      path: tmux.conf
+      if: "[ -f tmux.conf ]"
+    ~/.screenrc:
+      path: screenrc
+      if: "[ -f screenrc ]"
     ~/.gdbinit: gdbinit
     ~/.lldbinit: lldbinit
     ~/.asdfrc: asdfrc
@@ -35,7 +43,9 @@
       create: true
     ~/Library/Application Support/BBEdit: bbedit/BBEdit
     ~/Library/Preferences/com.barebones.bbedit.plist: bbedit/com.barebones.bbedit.plist
-    ~/.gemrc: gemrc
+    ~/.gemrc:
+      path: gemrc
+      if: "[ -f gemrc ]"
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
