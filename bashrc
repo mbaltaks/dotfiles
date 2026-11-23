@@ -47,10 +47,7 @@ fi
 #source /usr/local/opt/chruby/share/chruby/auto.sh
 
 # asdf, for managing language version installs
-source_if_exists /opt/brew/opt/asdf/asdf.sh
-source_if_exists /opt/homebrew/opt/asdf/asdf.sh
-source_if_exists /usr/local/opt/asdf/asdf.sh
-source_if_exists /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # autoenv
 # source /usr/local/opt/autoenv/activate.sh
