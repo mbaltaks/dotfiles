@@ -90,6 +90,11 @@ source_if_exists /opt/local/share/fzf/shell/completion.zsh
 # start of each shell. Its completions need compinit to have run first.
 (( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
+# npm -g installs here while asdf's global nodejs is `system`; asdf shims
+# only the bins of node versions it installed. A fixed path, because
+# `npm config get prefix` starts node on every shell start.
+export PATH="$PATH:${ASDF_DATA_DIR:-$HOME/.asdf}/installs/nodejs/.npm/bin"
+
 # Added by LM Studio CLI (lms)
 [[ -d "${HOME}/.lmstudio/bin" ]] && export PATH="$PATH:${HOME}/.lmstudio/bin"
 

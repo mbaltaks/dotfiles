@@ -96,8 +96,8 @@ export GREP_COLOR=auto
 # Perforce setup
 export P4CONFIG=.p4config
 
-# xcrun -find is a subprocess; only pay for it when the toolchain has moved.
-export CODESIGN_ALLOCATE="${CODESIGN_ALLOCATE:-$(xcrun -find codesign_allocate 2>/dev/null)}"
+# No CODESIGN_ALLOCATE: codesign finds codesign_allocate through xcrun, so it
+# follows the selected Xcode. A value set at shell start goes stale.
 
 #export JAVA_HOME=`/usr/libexec/java_home`
 export JAVA_HOME=/usr
