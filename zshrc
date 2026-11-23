@@ -76,7 +76,6 @@ source_if_exists /opt/local/share/fzf/shell/key-bindings.zsh
 source_if_exists /opt/local/share/fzf/shell/completion.zsh
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 #eval "$(starship init zsh)"
 
 #eval "$(nodenv init -)"
@@ -86,6 +85,9 @@ source_if_exists /opt/local/share/fzf/shell/completion.zsh
 
 # initialise completions with ZSH's compinit
 autoload -U compinit && compinit -i
+
+# zoxide's completions need compinit to run first
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
 (( $+commands[npm] )) && export PATH="$PATH:$(npm config get prefix)/bin"
 
