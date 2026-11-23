@@ -96,10 +96,8 @@ export GREP_COLOR=auto
 # Perforce setup
 export P4CONFIG=.p4config
 
-xcrun=`which xcrun`
-if [ -x "${xcrun}" ]; then
-    export CODESIGN_ALLOCATE=$(xcrun -find codesign_allocate)
-fi
+# xcrun -find is a subprocess; only pay for it when the toolchain has moved.
+export CODESIGN_ALLOCATE="${CODESIGN_ALLOCATE:-$(xcrun -find codesign_allocate 2>/dev/null)}"
 
 #export JAVA_HOME=`/usr/libexec/java_home`
 export JAVA_HOME=/usr
@@ -142,8 +140,16 @@ setopt hup
 setopt long_list_jobs
 setopt notify
 
-autoload -U compinit
-compinit
+# Single compinit for the whole session (also the only one in .zshrc).
+# Full security check (compaudit) at most once a day; after that the
+# cached ~/.zcompdump is reused. If completions look broken, run
+# `rm ~/.zcompdump` or force a check with `compinit -i`.
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit -i
+else
+  compinit -C
+fi
 zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors ''
 # case-insensitive, partial-word, and then substring completion

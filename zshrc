@@ -63,8 +63,8 @@ done
 #source /usr/local/opt/asdf/asdf.sh
 #. /opt/local/share/asdf/asdf.sh
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-# append completions to fpath
-fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+# Completions are registered by the single compinit in env.zsh via $fpath
+# (it already scans the default asdf completion dir).
 
 
 source_if_exists "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br"
@@ -82,13 +82,25 @@ source_if_exists /opt/local/share/fzf/shell/completion.zsh
 
 #zprof
 
-# initialise completions with ZSH's compinit
-autoload -U compinit && compinit -i
+# NOTE: compinit runs once in ~/.dotfiles/env.zsh (24h-guarded). Do not
+# re-run it here: a second call doubles startup cost and re-registers
+# 800+ completion functions.
 
-# zoxide's completions need compinit to run first
-(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
-
-(( $+commands[npm] )) && export PATH="$PATH:$(npm config get prefix)/bin"
+# zoxide: lazy-load. Completing the 'z'/'zi'/'zoxide' command triggers a
+# one-time `zoxide init` (~50 ms); every other shell start is free.
+# (Re)source this block if you want the built-in completions back eagerly.
+# zoxide init zsh redefines z/zi as new functions, so after the init the
+# bare re-call resolves to the real thing. The loader unsets itself first
+# so the new z/zi take over cleanly (no recursion).
+__zoxide_lazy() {
+  unset -f __zoxide_lazy
+  # `command` skips the zoxide() wrapper defined below, so the binary's
+  # init script is fetched without a recursive call through the wrapper.
+  (( $+commands[zoxide] )) && eval "$(command zoxide init zsh)"
+}
+z() { __zoxide_lazy "$@"; z "$@"; }
+zi() { __zoxide_lazy "$@"; zi "$@"; }
+zoxide() { __zoxide_lazy; command zoxide "$@"; }
 
 # Added by LM Studio CLI (lms)
 [[ -d "${HOME}/.lmstudio/bin" ]] && export PATH="$PATH:${HOME}/.lmstudio/bin"

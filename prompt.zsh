@@ -1,5 +1,13 @@
 # Prompt char picked from https://github.com/sindresorhus/pure#why
-export PROMPT='%~$(git-prompt-info)❯ '
+# Git info is computed once in precmd (not per-prompt command substitution),
+# which avoids 2-3 git subprocesses on every prompt render.
+git_prompt_cache=''
+git_prompt_precmd() {
+  git_prompt_cache=$(git-prompt-info)
+}
+autoload -U add-zsh-hook
+add-zsh-hook precmd git_prompt_precmd
+export PROMPT='%~${git_prompt_cache}❯ '
 
 
 # function prompt_custom_precmd {
