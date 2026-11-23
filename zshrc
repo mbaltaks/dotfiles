@@ -76,7 +76,7 @@ source_if_exists /opt/local/share/fzf/shell/key-bindings.zsh
 source_if_exists /opt/local/share/fzf/shell/completion.zsh
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(zoxide init zsh)"
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 #eval "$(starship init zsh)"
 
 #eval "$(nodenv init -)"
@@ -87,15 +87,13 @@ eval "$(zoxide init zsh)"
 # initialise completions with ZSH's compinit
 autoload -U compinit && compinit -i
 
-export PATH="$PATH:$(npm config get prefix)/bin"
+(( $+commands[npm] )) && export PATH="$PATH:$(npm config get prefix)/bin"
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:${HOME}/.lmstudio/bin"
-# End of LM Studio CLI section
-
+[[ -d "${HOME}/.lmstudio/bin" ]] && export PATH="$PATH:${HOME}/.lmstudio/bin"
 
 # opencode
-export PATH="${HOME}/.opencode/bin:$PATH"
+[[ -d "${HOME}/.opencode/bin" ]] && export PATH="${HOME}/.opencode/bin:$PATH"
 
 # Hermes Agent command
-case ":$PATH:" in *":$HOME/.local/bin:"*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac
+[[ -d "$HOME/.local/bin" ]] && case ":$PATH:" in *":$HOME/.local/bin:"*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac

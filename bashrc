@@ -68,6 +68,5 @@ source_if_exists "${HOME}/Library/Preferences/org.dystroy.broot/launcher/bash/br
 source_if_exists ~/.fzf.bash
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:${HOME}/.lmstudio/bin"
-# End of LM Studio CLI section
+[ -d "${HOME}/.lmstudio/bin" ] && export PATH="$PATH:${HOME}/.lmstudio/bin"
 
