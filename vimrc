@@ -10,7 +10,6 @@ set showcmd                     " display incomplete commands
 filetype plugin indent on       " load file type plugins + indentation
 
 " keys
-inoremap jk <ESC> " Who ever needs to type j then k? Lets get out of insert mode instead.
 let mapleader = ","
 
 "set visualbell
