@@ -86,21 +86,9 @@ source_if_exists /opt/local/share/fzf/shell/completion.zsh
 # re-run it here: a second call doubles startup cost and re-registers
 # 800+ completion functions.
 
-# zoxide: lazy-load. Completing the 'z'/'zi'/'zoxide' command triggers a
-# one-time `zoxide init` (~50 ms); every other shell start is free.
-# (Re)source this block if you want the built-in completions back eagerly.
-# zoxide init zsh redefines z/zi as new functions, so after the init the
-# bare re-call resolves to the real thing. The loader unsets itself first
-# so the new z/zi take over cleanly (no recursion).
-__zoxide_lazy() {
-  unset -f __zoxide_lazy
-  # `command` skips the zoxide() wrapper defined below, so the binary's
-  # init script is fetched without a recursive call through the wrapper.
-  (( $+commands[zoxide] )) && eval "$(command zoxide init zsh)"
-}
-z() { __zoxide_lazy "$@"; z "$@"; }
-zi() { __zoxide_lazy "$@"; zi "$@"; }
-zoxide() { __zoxide_lazy; command zoxide "$@"; }
+# zoxide: init eagerly, so its chpwd hook records every directory from the
+# start of each shell. Its completions need compinit to have run first.
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
 # Added by LM Studio CLI (lms)
 [[ -d "${HOME}/.lmstudio/bin" ]] && export PATH="$PATH:${HOME}/.lmstudio/bin"

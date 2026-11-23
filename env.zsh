@@ -144,12 +144,18 @@ setopt notify
 # Full security check (compaudit) at most once a day; after that the
 # cached ~/.zcompdump is reused. If completions look broken, run
 # `rm ~/.zcompdump` or force a check with `compinit -i`.
+# The (#q) glob qualifier needs extended_glob. compinit leaves an unchanged
+# dump's mtime alone, so touch it to restart the 24h clock.
 autoload -Uz compinit
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-  compinit -i
-else
-  compinit -C
-fi
+() {
+  setopt local_options extended_glob
+  if [[ ! -e ~/.zcompdump || -n ~/.zcompdump(#qN.mh+24) ]]; then
+    compinit -i
+    touch ~/.zcompdump
+  else
+    compinit -C
+  fi
+}
 zstyle ':completion:*' menu select
 zstyle ':completion:*:default' list-colors ''
 # case-insensitive, partial-word, and then substring completion
