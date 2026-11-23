@@ -39,7 +39,7 @@
 	#pager = "less -eiMR"
 	#pager = most
 	# pager = "less -eFiMR"
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = ~/.dotfiles/bin/git-pager
 	editor = vim
 	quotepath = false
 	trustctime = false
